@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.util.ArrayList;
 
 public class DictionaryAdvance extends Dictionary {
     private BufferedReader br;
@@ -13,10 +14,10 @@ public class DictionaryAdvance extends Dictionary {
     }
 
     /**
-     * nhap du lieu tu file.
-     * 
+     * insert from file.
+     * @param file file to insert
      */
-    public void insertFromFile(File file) {
+    public boolean insertFromFile(File file) {
         try {
             br = Files.newBufferedReader(file.toPath(), StandardCharsets.UTF_8);
             String line;
@@ -26,22 +27,23 @@ public class DictionaryAdvance extends Dictionary {
                     break;
                 } else {
                     String[] word = line.split("\t");
-                    Word neWord = new Word(word[0], word[1]);
+                    Word neWord = new Word(word[0].toLowerCase(), word[1].toLowerCase());
                     this.addWord(neWord);
                 }
             }
             
-            System.out.println("Them tu moi thanh cong!");
+            return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            return false;
         }
     }
 
+
     /**
-     * Export to file.
-     * 
+     * remove from file.
+     * @param file file to remove
      */
-    public void dictionaryExportToFile(File file) {
+    public boolean dictionaryExportToFile(File file) {
         try {
             pw = new PrintWriter(file, "UTF-8");
             for (int i = 0; i < wordList.size(); i++) {
@@ -50,10 +52,24 @@ public class DictionaryAdvance extends Dictionary {
             }
             pw.flush();
             pw.close();
-            System.out.println("xuat du lieu thanh cong");
+            return true;
         } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
+            return false;
         }
+    }
+
+    /**
+     * search word in dictionary.
+     * @param target target to search
+     * @return list of word
+     */
+    public ArrayList<Word> dictionarySearcher(String target) {
+        ArrayList<Word> res = new ArrayList<Word>();
+        for (Word w : wordList) {
+            if (w.getWord_target().startsWith(target)) {
+                res.add(w);
+            }
+        }
+        return res;
     }
 }
