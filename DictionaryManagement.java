@@ -1,6 +1,5 @@
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class DictionaryManagement {
     private DictionaryAdvance dictionary;
@@ -9,6 +8,36 @@ public class DictionaryManagement {
     public DictionaryManagement() {
         dictionary = new DictionaryAdvance();
         file = new File("dictionaries.txt");
+    }
+
+    /**
+     * lookup word in dictionary.
+     * @param target word to lookup
+     * @return list of word
+     */
+    public ArrayList<Word> dictionaryLookup(String target) {
+        ArrayList<Word> res = new ArrayList<>();
+        for (Word w : dictionary.getWordList()) {
+            if (w.getWord_target().equals(target)) {
+                res.add(w);
+            }
+        }
+        return res;
+    }
+
+    /**
+     * search word in dictionary.
+     * @param target target to search
+     * @return list of word
+     */
+    public ArrayList<Word> dictionarySearcher(String target) {
+        ArrayList<Word> res = new ArrayList<Word>();
+        for (Word w : dictionary.getWordList()) {
+            if (w.getWord_target().startsWith(target)) {
+                res.add(w);
+            }
+        }
+        return res;
     }
 
     /**
@@ -23,7 +52,7 @@ public class DictionaryManagement {
      * remove word from commandline.
      */
     public boolean removeFromCommandline(String input) {
-        ArrayList<Word> res = dictionary.dictionaryLookup(input);
+        ArrayList<Word> res = dictionaryLookup(input);
         if (res.size() == 0) {
             return false;
         }
@@ -37,10 +66,7 @@ public class DictionaryManagement {
      * update word from commandline.
      */
     public boolean updateFromCommandline(String input, int choice, String newString) {
-        ArrayList<Word> res = dictionary.dictionaryLookup(input);
-        if (res.size() == 0) {
-            return false;
-        }
+        ArrayList<Word> res = dictionaryLookup(input);
         if (choice == 1) {
             for (Word w : res) {
                 dictionary.updateWordTarget(w, newString);
@@ -66,20 +92,6 @@ public class DictionaryManagement {
      */
     public boolean dictionaryExportToFile() {
         return dictionary.dictionaryExportToFile(file);
-    }
-
-    /**
-     * lookup word from commandline.
-     */
-    public ArrayList<Word> dictionaryLookup(String word) {
-        return dictionary.dictionaryLookup(word);
-    }
-
-    /**
-     * search word from commandline.
-     */
-    public ArrayList<Word> dictionarySearcher(String word) {
-        return dictionary.dictionarySearcher(word);
     }
 
     public void setDictionary(DictionaryAdvance dictionary) {

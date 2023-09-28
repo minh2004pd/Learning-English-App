@@ -57,19 +57,4 @@ public class DictionaryAdvance extends Dictionary {
             return false;
         }
     }
-
-    /**
-     * search word in dictionary.
-     * @param target target to search
-     * @return list of word
-     */
-    public ArrayList<Word> dictionarySearcher(String target) {
-        ArrayList<Word> res = new ArrayList<Word>();
-        for (Word w : wordList) {
-            if (w.getWord_target().startsWith(target)) {
-                res.add(w);
-            }
-        }
-        return res;
-    }
 }

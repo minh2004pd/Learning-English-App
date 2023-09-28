@@ -42,21 +42,7 @@ public class Dictionary {
      */
     public void updateWordTarget(Word word, String newTarget) {
         word.setWord_target(newTarget);
-    }
-
-    /**
-     * lookup word in dictionary.
-     * @param target word to lookup
-     * @return list of word
-     */
-    public ArrayList<Word> dictionaryLookup(String target) {
-        ArrayList<Word> res = new ArrayList<>();
-        for (Word w : wordList) {
-            if (w.getWord_target().equals(target)) {
-                res.add(w);
-            }
-        }
-        return res;
+        Collections.sort(wordList, (word1, word2) -> word1.getWord_target().compareTo(word2.getWord_target()));
     }
 
     public ArrayList<Word> getWordList() {

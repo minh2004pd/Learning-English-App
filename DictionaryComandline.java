@@ -100,6 +100,10 @@ public class DictionaryComandline {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhap tu can sua: ");
         String input = scanner.nextLine().toLowerCase();
+        if (dictionaryManagement.dictionaryLookup(input).isEmpty()) {
+            System.out.println("don't find word!");
+            return;
+        }
         System.out.println("1. change target");
         System.out.println("2. change explain");
         System.out.print("choose: ");
@@ -108,7 +112,7 @@ public class DictionaryComandline {
         System.out.print("change to: ");
         String newString = scanner.nextLine();
         if (!dictionaryManagement.updateFromCommandline(input, choice, newString)) {
-            System.out.println("don't find word!");
+            System.out.println("failed to change!");
         } else {
             System.out.println("change success!");
         }
