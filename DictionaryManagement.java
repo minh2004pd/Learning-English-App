@@ -54,7 +54,7 @@ public class DictionaryManagement {
                 Word word = new Word(word_target, word_explain);
                 dictionary.addWord(word);
             }
-        }
+        }   scanner.close();
     }
 
     /**
@@ -91,6 +91,7 @@ public class DictionaryManagement {
                 System.out.println(res.get(i).getWord_target() + "\t" + res.get(i).getWord_explain());
             }
         }
+        scanner.close();
     }
 
     /**
