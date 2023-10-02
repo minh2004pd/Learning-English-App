@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DictionaryManagement {
     private DictionaryAdvance dictionary;
@@ -11,98 +12,105 @@ public class DictionaryManagement {
     }
 
     /**
-     * lookup word in dictionary.
-     * @param target word to lookup
-     * @return list of word
+     * check is integer or not.
+     * 
+     * @param s string have to check
+     * @return true or false
      */
-    public ArrayList<Word> dictionaryLookup(String target) {
-        ArrayList<Word> res = new ArrayList<>();
-        for (Word w : dictionary.getWordList()) {
-            if (w.getWord_target().equals(target)) {
-                res.add(w);
-            }
-        }
-        return res;
-    }
-
-    /**
-     * search word in dictionary.
-     * @param target target to search
-     * @return list of word
-     */
-    public ArrayList<Word> dictionarySearcher(String target) {
-        ArrayList<Word> res = new ArrayList<Word>();
-        for (Word w : dictionary.getWordList()) {
-            if (w.getWord_target().startsWith(target)) {
-                res.add(w);
-            }
-        }
-        return res;
-    }
-
-    /**
-     * insert word from commandline.
-     *
-     */
-    public void insertFromCommandline(Word word) {
-        dictionary.addWord(word);
-    }
-
-    /**
-     * remove word from commandline.
-     */
-    public boolean removeFromCommandline(String input) {
-        ArrayList<Word> res = dictionaryLookup(input);
-        if (res.size() == 0) {
+    public static boolean isInteger(String s) {
+        if (s.isEmpty()) {
             return false;
         }
-        for (Word w : res) {
-            dictionary.removeWord(w);
+
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) {
+                return false;
+            }
         }
+
         return true;
     }
 
     /**
-     * update word from commandline.
+     * nhap du lieu bang lenh.
+     * 
      */
-    public boolean updateFromCommandline(String input, int choice, String newString) {
-        ArrayList<Word> res = dictionaryLookup(input);
-        if (choice == 1) {
-            for (Word w : res) {
-                dictionary.updateWordTarget(w, newString);
-            }
-        } else if (choice == 2) {
-            for (Word w : res) {
-                dictionary.updateWordExplain(w, newString);
-            }
+    public void insertFromCommandline() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhap so luong tu: ");
+        String input = scanner.nextLine();
+        if (!isInteger(input)) {
+            System.out.println("dau vao khong hop le!");
+            insertFromCommandline();
         }
-        return true;
+        else {
+            int n = Integer.parseInt(input);
+            // scanner.nextLine();
+            for (int i = 0; i < n; i++) {
+                System.out.print("Nhap tu tieng anh: ");
+                String word_target = scanner.nextLine();
+                System.out.print("Nhap giai nghia: ");
+                String word_explain = scanner.nextLine();
+                Word word = new Word(word_target, word_explain);
+                dictionary.addWord(word);
+            }
+        }   scanner.close();
     }
 
     /**
-     * insert from file.
+     * nhap du lieu tu file.
+     * 
      */
-    public boolean insertFromFile() {
-        return dictionary.insertFromFile(file);
+    public void insertFromFile() {
+        dictionary.insertFromFile(file);
     }
 
     /**
      * Export to file.
      * 
      */
-    public boolean dictionaryExportToFile() {
-        return dictionary.dictionaryExportToFile(file);
+    public void dictionaryExportToFile() {
+        dictionary.dictionaryExportToFile(file);
+    }
+
+    /**
+     * tra cứu từ điển bằng dòng lệnh.
+     * 
+     */
+    public void dictionaryLookup() {
+        System.out.print("Nhap tu can tra: ");
+        Scanner scanner = new Scanner(System.in);
+        String word = scanner.nextLine();
+        ArrayList<Word> res = dictionary.dictionaryLookup(word);
+        if (res.isEmpty()) {
+            System.out.println("Khong tim thay tu can tra!");
+        }
+        else {
+            System.out.println("Ket qua: ");
+            for (int i = 0; i < res.size(); i++) {
+                System.out.println(res.get(i).getWord_target() + "\t" + res.get(i).getWord_explain());
+            }
+        }
+        scanner.close();
+    }
+
+    /**
+     * show all words in dictionary
+     */
+    public void showAllWords() {
+        System.out.printf("%-4s | %-20s | %s%n", "No", "English", "Vietnamese");
+        System.out.println("-------------------------------------------");
+        for (int i = 0; i < dictionary.getWordList().size(); i++) {
+            Word word = dictionary.getWordList().get(i);
+            System.out.printf("%-4d | %-20s | %s%n", (i + 1), word.getWord_target(), word.getWord_explain());
+        }
     }
 
     public void setDictionary(DictionaryAdvance dictionary) {
         this.dictionary = dictionary;
     }
 
-    public DictionaryAdvance getDictionary() {
+    public Dictionary getDictionary() {
         return dictionary;
-    }
-
-    public ArrayList<Word> getWordList() {
-        return dictionary.getWordList();
     }
 }

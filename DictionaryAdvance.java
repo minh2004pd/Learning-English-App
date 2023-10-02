@@ -3,7 +3,6 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.ArrayList;
 
 public class DictionaryAdvance extends Dictionary {
     private BufferedReader br;
@@ -14,10 +13,10 @@ public class DictionaryAdvance extends Dictionary {
     }
 
     /**
-     * insert from file.
-     * @param file file to insert
+     * nhap du lieu tu file.
+     * 
      */
-    public boolean insertFromFile(File file) {
+    public void insertFromFile(File file) {
         try {
             br = Files.newBufferedReader(file.toPath(), StandardCharsets.UTF_8);
             String line;
@@ -27,23 +26,22 @@ public class DictionaryAdvance extends Dictionary {
                     break;
                 } else {
                     String[] word = line.split("\t");
-                    Word neWord = new Word(word[0].toLowerCase(), word[1].toLowerCase());
+                    Word neWord = new Word(word[0], word[1]);
                     this.addWord(neWord);
                 }
             }
             
-            return true;
+            System.out.println("Them tu moi thanh cong!");
         } catch (Exception e) {
-            return false;
+            e.printStackTrace();
         }
     }
 
-
     /**
-     * remove from file.
-     * @param file file to remove
+     * Export to file.
+     * 
      */
-    public boolean dictionaryExportToFile(File file) {
+    public void dictionaryExportToFile(File file) {
         try {
             pw = new PrintWriter(file, "UTF-8");
             for (int i = 0; i < wordList.size(); i++) {
@@ -52,9 +50,10 @@ public class DictionaryAdvance extends Dictionary {
             }
             pw.flush();
             pw.close();
-            return true;
+            System.out.println("xuat du lieu thanh cong");
         } catch (Exception e) {
-            return false;
+            // TODO: handle exception
+            e.printStackTrace();
         }
     }
 }
