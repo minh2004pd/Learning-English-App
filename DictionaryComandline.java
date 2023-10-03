@@ -41,7 +41,7 @@ public class DictionaryComandline {
                     // Thực hiện hành động tìm kiếm từ
                     break;
                 case 7:
-                    // Game
+                    Hangman.run();
                     break;
                 case 8:
                     dictionaryManagement.insertFromFile();
