@@ -63,21 +63,20 @@ public class DictionaryComandline {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhap so luong tu: ");
         String input = scanner.nextLine();
-        if (!isInteger(input)) {
+        while (!isInteger(input)) {
             System.out.println("dau vao khong hop le!");
-            insertFromCommandline();
+            System.out.print("Nhap so luong tu: ");
+            input = scanner.nextLine();
         }
-        else {
-            int n = Integer.parseInt(input);
-            // scanner.nextLine();
-            for (int i = 0; i < n; i++) {
-                System.out.print("Nhap tu tieng anh: ");
-                String word_target = scanner.nextLine().toLowerCase();
-                System.out.print("Nhap giai nghia: ");
-                String word_explain = scanner.nextLine().toLowerCase();
-                Word word = new Word(word_target, word_explain);
-                dictionaryManagement.insertFromCommandline(word);
-            }
+        int n = Integer.parseInt(input);
+        // scanner.nextLine();
+        for (int i = 0; i < n; i++) {
+            System.out.print("Nhap tu tieng anh: ");
+            String word_target = scanner.nextLine().toLowerCase();
+            System.out.print("Nhap giai nghia: ");
+            String word_explain = scanner.nextLine().toLowerCase();
+            Word word = new Word(word_target, word_explain);
+            dictionaryManagement.insertFromCommandline(word);
         }
     }
 
