@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.ArrayList;
 
 public class DictionaryAdvance extends Dictionary {
     private BufferedReader br;

@@ -78,6 +78,7 @@ public class DictionaryComandline {
             Word word = new Word(word_target, word_explain);
             dictionaryManagement.insertFromCommandline(word);
         }
+        scanner.close();
     }
 
     /**
@@ -92,6 +93,7 @@ public class DictionaryComandline {
         } else {
             System.out.println("Xoa thanh cong!");
         }
+        scanner.close();
     }
 
     /**
@@ -103,6 +105,7 @@ public class DictionaryComandline {
         String input = scanner.nextLine().toLowerCase();
         if (dictionaryManagement.dictionaryLookup(input).isEmpty()) {
             System.out.println("don't find word!");
+            scanner.close();
             return;
         }
         System.out.println("1. change target");
@@ -117,6 +120,7 @@ public class DictionaryComandline {
         } else {
             System.out.println("change success!");
         }
+        scanner.close();
     }
 
     /**
@@ -158,6 +162,7 @@ public class DictionaryComandline {
                 System.out.println(w.getWord_target() + "\t" + w.getWord_explain());
             }
         }
+        scanner.close();
     }
 
     /**
@@ -176,6 +181,7 @@ public class DictionaryComandline {
                 System.out.println(w.getWord_target() + "\t" + w.getWord_explain());
             }
         }
+        scanner.close();scanner.close();
     }
 
     /**
@@ -257,7 +263,7 @@ public class DictionaryComandline {
                     e.printStackTrace();
                 }
             } else if (action == 7) {
-                // Game
+                Hangman.run();
             } else if (action == 8) {
                 insertFromFile();
                 waitForKeyPress();
