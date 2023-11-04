@@ -16,6 +16,8 @@ public class MainController implements Initializable {
     private AnchorPane mainContent;
     @FXML
     private AnchorPane searchPane;
+    @FXML
+    private AnchorPane translatePane;
 
     private  SearchController searchController;
 
@@ -51,12 +53,28 @@ public class MainController implements Initializable {
         setMainContent(searchPane);
     }
 
+    @FXML
+    public void showTranslatePane() {
+        resetNav();
+        translateButton.getStyleClass().add("active");
+        setMainContent(translatePane);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // search tab
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("search.fxml"));
             searchPane = loader.load();
             searchController = loader.getController();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // translate tab
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("translate.fxml"));
+            translatePane = loader.load();
         } catch (Exception e) {
             e.printStackTrace();
         }

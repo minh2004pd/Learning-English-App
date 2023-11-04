@@ -1,5 +1,7 @@
 package model;
 
+import javax.sound.sampled.*;
+import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import com.voicerss.tts.AudioCodec;
 import com.voicerss.tts.AudioFormat;
@@ -16,26 +18,49 @@ public class TextToSpeech {
     public static String language = "en-gb";
     public static String Name = "Linda";
     public static double speed = 1;
+
     public static void speakWord(String word) throws Exception {
-        VoiceProvider tts = new VoiceProvider(API_KEY);
+        Thread thread = new Thread(() -> {
+            try {
+                VoiceProvider tts = new VoiceProvider(API_KEY);
 
-        VoiceParameters params = new VoiceParameters(word, Languages.English_UnitedStates);
-        params.setCodec(AudioCodec.WAV);
-        params.setFormat(AudioFormat.Format_44KHZ.AF_44khz_16bit_stereo);
-        params.setLanguage(language);
-        params.setVoice(Name);
-        params.setBase64(false);
-        params.setSSML(false);
-        params.setRate(0);
+                VoiceParameters params = new VoiceParameters(word, Languages.English_UnitedStates);
+                params.setCodec(AudioCodec.WAV);
+                params.setFormat(AudioFormat.Format_44KHZ.AF_44khz_16bit_stereo);
+                params.setLanguage(language);
+                params.setVoice(Name);
+                params.setBase64(false);
+                params.setSSML(false);
+                params.setRate(0);
 
-        byte[] voice = tts.speech(params);
+                byte[] voice = tts.speech(params);
 
-        FileOutputStream fos = new FileOutputStream(AUDIO_PATH);
-        fos.write(voice, 0, voice.length);
-        fos.flush();
-        fos.close();
+                // Play the voice
+                playAudio(voice);
+
+                FileOutputStream fos = new FileOutputStream(AUDIO_PATH);
+                fos.write(voice, 0, voice.length);
+                fos.flush();
+                fos.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        thread.start();
     }
-    public static void main (String args[]) throws Exception {
+
+    private static void playAudio(byte[] audioData) throws Exception {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new ByteArrayInputStream(audioData));
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+        clip.start();
+        Thread.sleep(clip.getMicrosecondLength() / 1000); // Wait for audio to finish playing
+        clip.close();
+        audioInputStream.close();
+    }
+
+    public static void main(String args[]) throws Exception {
         speakWord("Hello word this is text to speech");
     }
 }

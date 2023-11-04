@@ -1,12 +1,15 @@
 package database;
 
+import model.Word;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.ArrayList;
 
 public class JDBCUtil {
     public static Connection getConnection() {
         Connection c = null;
-        String url = "jdbc:mySQL://localhost:3306/dictionarydb";
+        String url = "jdbc:mySQL://localhost:3306/classicmodels";
         String username = "root";
         String password = "";
         try {
@@ -27,5 +30,11 @@ public class JDBCUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        Connection connection = JDBCUtil.getConnection();
+        ArrayList<Word> res = WordDAO.getInstance().selectAll();
+        System.out.println(res);
     }
 }

@@ -6,6 +6,10 @@ module com.example.version2 {
     requires freetts;
     requires voicerss.tts;
     requires javafx.media;
+    requires java.desktop;
+    requires gson;
+    requires detectlanguage;
+    requires mysql.connector.j;
 
 
     opens com.example.version2 to javafx.fxml;
