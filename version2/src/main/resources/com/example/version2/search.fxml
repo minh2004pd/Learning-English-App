@@ -11,6 +11,7 @@
 <?import javafx.scene.web.HTMLEditor?>
 <?import javafx.scene.web.WebView?>
 
+<?import javafx.scene.control.ScrollPane?>
 <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="second-color" stylesheets="@style/search.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.version2.SearchController">
     <children>
         <AnchorPane layoutY="-3.0" prefHeight="459.0" prefWidth="257.0" styleClass="second-color" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-3.0">
@@ -28,7 +29,7 @@
                 </HBox>
                 <VBox layoutX="19.0" layoutY="58.0" prefHeight="525.0" prefWidth="219.0" style="-fx-background-radius: 3;" styleClass="third-color" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="58.0">
                     <children>
-                        <ListView fx:id="wordListView" onMouseClicked="#handleClickListView"  onMousePressed="#showDefinition" prefHeight="529.0" prefWidth="236.0" style="-fx-background-color: none;" />
+                        <ListView fx:id="wordListView" onMouseClicked="#handleClickListView" prefWidth="236.0" prefHeight="529.0"  onMousePressed="#showDefinition" style="-fx-background-color: none;" />
                     </children>
                 </VBox>
             </children>

@@ -1,5 +1,7 @@
 package model;
 
+import database.WordDAO;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
@@ -61,5 +63,20 @@ public class DictionaryAdvance extends Dictionary {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public boolean insertFromDB() {
+        wordList = WordDAO.getInstance().selectAll();
+        return true;
+    }
+
+    public int deleteFromDB(Word word) {
+        int res = WordDAO.getInstance().delete(word);
+        return  res;
+    }
+
+    public int updateFromDB(Word word) {
+        int res = WordDAO.getInstance().update(word);
+        return res;
     }
 }

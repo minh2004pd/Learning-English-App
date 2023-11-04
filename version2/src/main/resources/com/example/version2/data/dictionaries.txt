@@ -3,7 +3,7 @@ family	<html><head></head><body contenteditable="true"><p><span style="font-fami
 fast	<html><head></head><body contenteditable="true">nhanh nhanh</body></html>
 food	thức ăn
 friend	<html><head></head><body contenteditable="true"><h2><span style="color: rgb(153, 0, 0);">bạn</span></h2></body></html>
-goodbye	tạm biệt
+goodbye	<html><head></head><body contenteditable="true"><span style="color: rgb(255, 102, 102);">tạm biệt</span></body></html>
 happy	<html><head></head><body contenteditable="true">hạnh phúc</body></html>
 hello	xin chào
 hot	nóng

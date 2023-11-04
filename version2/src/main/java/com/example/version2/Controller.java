@@ -74,6 +74,7 @@ public class Controller extends MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+
     }
 
     public void showWarningAlert() {
@@ -84,18 +85,6 @@ public class Controller extends MainController implements Initializable {
         alert.showAndWait();
     }
 
-    public void playAudio(String filePath) {
-        File file = new File(filePath);
-        Media media = new Media(file.toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
-        mediaPlayer.setOnEndOfMedia(() -> {
-            mediaPlayer.stop();
-            mediaPlayer.dispose();
-        });
-    }
-
     public void speak(String lang) {
         TextToSpeech.language = lang;
         try {
@@ -104,7 +93,7 @@ public class Controller extends MainController implements Initializable {
             e.printStackTrace();
         }
         System.out.println(headText.getText());
-        playAudio("D:\\version2\\src\\main\\resources\\audio.wav");
+        // playAudio("audio.wav");
     }
 
     @FXML

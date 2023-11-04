@@ -86,6 +86,10 @@ public class DictionaryManagement {
         return true;
     }
 
+    public boolean insertFromDB() {
+        return dictionary.insertFromDB();
+    }
+
     /**
      * insert from file.
      */
