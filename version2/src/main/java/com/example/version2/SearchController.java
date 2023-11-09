@@ -18,7 +18,7 @@ public class SearchController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        getCurrentDic().insertFromFile();
+        getCurrentDic().insertFromDB();
         setLanguage();
         for (Word temp : getCurrentDic().getWordList()) {
             searchList.add(temp.getWord_target());
@@ -44,7 +44,7 @@ public class SearchController extends Controller implements Initializable {
         searchWordTemp.clear();
         searchList.clear();
         String word = searchField.getText();
-        searchWordTemp = getCurrentDic().dictionarySearcher(word);
+        searchWordTemp = getCurrentDic().dictionarySearcher(word.toLowerCase());
         setSearchListViewItem();
     }
 

@@ -27,6 +27,10 @@
 
 /* ========================= TextField ========================= */
 
+#searchField {
+    -fx-background-color: #282828;
+    -fx-text-fill: white;
+}
 .text-field {
     -fx-background-image: url('../icon/normal/search-bar.png');
     -fx-background-size: 22;
@@ -61,7 +65,7 @@
 /* ========================= Text ========================= */
 
 .title-meaning {
-    -fx-text-fill: -title-color;
+    -fx-text-fill: #902929;
     -fx-font-size: 20;
     -fx-font-weight: bold;
 }
