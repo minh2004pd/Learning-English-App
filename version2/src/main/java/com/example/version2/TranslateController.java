@@ -136,11 +136,15 @@ public class TranslateController implements Initializable {
                 System.out.println(lang);
                 if (lang.equals("en")) {
                     text1.setText("Tiếng Anh");
-                    text2.setText("Viet Nam");
+                    text2.setText("Tiếng Việt");
+                    voiceFrom = "Linda";
+                    speakFrom = "en-gb";
                     langFrom = "en";
                 } else if (lang.equals("vi")) {
                     text2.setText("Tiếng Anh");
-                    text1.setText("Viet Nam");
+                    text1.setText("Tiếng Việt");
+                    voiceFrom = "Chi";
+                    speakFrom = "vi-vn";
                     langFrom = "vi";
                 } else {
                     area2.setText("Khong phat hien duoc ngon ngu!");

@@ -1,5 +1,6 @@
 package com.example.version2;
 
+import database.WordDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -191,8 +192,9 @@ public class Controller extends MainController implements Initializable {
         alert.showAndWait();
 
         if (alert.getResult() == yes) {
+            Word target = getCurrentDic().dictionaryLookup(spelling);
             getCurrentDic().removeFromCommandline(spelling);
-            getCurrentDic().dictionaryExportToFile();
+            WordDAO.getInstance().delete(target);
 //            getCurrentDic().getWordList().clear();
 //            getCurrentDic().insertFromFile();
             headText.setText("Nghĩa của từ");
@@ -247,8 +249,9 @@ public class Controller extends MainController implements Initializable {
 
         String newMeaning = editDefinition.getHtmlText().replace(" dir=\"ltr\"", "");
         String spelling = searchField.getText();
-        getCurrentDic().updateFromCommandline(spelling, 2, newMeaning);
-        getCurrentDic().dictionaryExportToFile();
+        Word word = getCurrentDic().dictionaryLookup(spelling);
+        getCurrentDic().updateFromCommandline(word, newMeaning);
+        getCurrentDic().updateToDB(word);
 //        getCurrentDic().getWordList().clear();
 //        getCurrentDic().insertFromFile();
 //        saveWordToFile(getCurrentDic().getPATH(), getCurrentDic().getVocab(), spelling, newMeaning);
