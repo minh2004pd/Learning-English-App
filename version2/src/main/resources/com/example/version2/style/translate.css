@@ -70,6 +70,18 @@
     -fx-font-weight: bold;
 }
 
+#text1 {
+     -fx-background-color: #1E1E1E;
+     -fx-text-fill: white;
+     -fx-background-radius: 20
+}
+
+#text2 {
+     -fx-background-color: #1E1E1E;
+     -fx-text-fill: white;
+     -fx-background-radius: 20
+}
+
 .button-translate-submit:hover {
     -fx-text-fill: white;
     -fx-background-color: -hover-purple-color;
@@ -86,12 +98,18 @@
 
 .text-area {
     -fx-background-insets: 0;
-    -fx-background-color: white;
+    -fx-text-fill: white;
+    -fx-background-color: #1E1E1E;
 }
 
 .text-area .content {
-    -fx-background-color: white;
+    -fx-background-color: #282828;
     -fx-font-size: 15;
+}
+
+#area2 {
+     -fx-background-color: #282828;
+     -fx-text-fill: white;
 }
 
 .text-area:focused {

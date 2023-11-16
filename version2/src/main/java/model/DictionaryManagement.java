@@ -1,5 +1,7 @@
 package model;
 
+import database.WordDAO;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,6 +37,30 @@ public class DictionaryManagement {
         }
     }
 
+    public static int binarySearchFirstEqual(ArrayList<Word> res, String target) {
+        int low = 0;
+        int high = res.size() - 1;
+        int result = -1;
+        int len = target.length();
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            String cur = res.get(mid).getWord_target();
+
+            // Check if the current word's substring matches the target
+            if (cur.length() >= len && cur.substring(0, len).equals(target)) {
+                result = mid;
+                high = mid - 1;  // Look for the first occurrence to the left
+            } else if (cur.compareTo(target) < 0) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        return result;
+    }
+
     /**
      * search word in dictionary.
      * @param target target to search
@@ -42,10 +68,13 @@ public class DictionaryManagement {
      */
     public ArrayList<Word> dictionarySearcher(String target) {
         ArrayList<Word> res = new ArrayList<Word>();
-        for (Word w : dictionary.getWordList()) {
-            if (w.getWord_target().startsWith(target)) {
-                res.add(w);
-            }
+        int start = binarySearchFirstEqual(dictionary.getWordList(), target);
+        if (start == -1) return res;
+
+        while (start < dictionary.getWordList().size() &&
+                dictionary.getWordList().get(start).getWord_target().startsWith(target)) {
+            res.add(dictionary.getWordList().get(start));
+            start++;
         }
         return res;
     }
@@ -75,14 +104,12 @@ public class DictionaryManagement {
     /**
      * update word from commandline.
      */
-    public boolean updateFromCommandline(String input, int choice, String newString) {
-        Word res = dictionaryLookup(input);
-        if (choice == 1) {
-            dictionary.updateWordTarget(res, newString);
-        } else if (choice == 2) {
-            dictionary.updateWordExplain(res, newString);
+    public void updateFromCommandline(Word res, String newString) {
+        dictionary.updateWordExplain(res, newString);
+    }
 
-        }
+    public boolean updateToDB(Word word) {
+        WordDAO.getInstance().update(word);
         return true;
     }
 
