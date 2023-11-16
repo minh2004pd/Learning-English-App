@@ -32,7 +32,7 @@ public class JDBCUtil {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Connection connection = JDBCUtil.getConnection();
         ArrayList<Word> res = WordDAO.getInstance().selectAll();
         System.out.println(res);

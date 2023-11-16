@@ -2,6 +2,7 @@ package model;
 
 public class Word {
     private int id;
+    private boolean bookMark = false;
     private String word_target;
     private String word_explain;
 
@@ -37,5 +38,13 @@ public class Word {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isBookMark() {
+        return bookMark;
+    }
+
+    public void setBookMark(boolean bookMark) {
+        this.bookMark = bookMark;
     }
 }

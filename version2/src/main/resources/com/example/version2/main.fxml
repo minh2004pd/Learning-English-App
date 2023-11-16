@@ -40,7 +40,7 @@
                               <String fx:value="button-translate" />
                           </styleClass>
                       </Button>
-                      <Button fx:id="bookmarkButton" contentDisplay="TOP" mnemonicParsing="false" prefHeight="58.0" prefWidth="57.0" text="Đã lưu" textFill="#47586b">
+                      <Button fx:id="bookmarkButton" contentDisplay="TOP" onAction="#showWordsMarkPane" mnemonicParsing="false" prefHeight="58.0" prefWidth="57.0" text="Đã lưu" textFill="#47586b">
                           <font>
                               <Font size="7.0" />
                           </font>
@@ -56,6 +56,15 @@
                           <styleClass>
                               <String fx:value="text-navi-bar" />
                               <String fx:value="button-history" />
+                          </styleClass>
+                      </Button>
+                      <Button fx:id="examButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#showPlayerPane" prefHeight="58.0" prefWidth="57.0" text="Kiểm tra" textFill="#8e9297">
+                          <font>
+                              <Font size="7.0" />
+                          </font>
+                          <styleClass>
+                              <String fx:value="text-navi-bar" />
+                              <String fx:value="button-exam" />
                           </styleClass>
                       </Button>
                   </children>

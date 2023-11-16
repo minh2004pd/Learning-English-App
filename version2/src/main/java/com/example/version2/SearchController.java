@@ -18,7 +18,12 @@ public class SearchController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        getCurrentDic().insertFromDB();
+        try {
+            getCurrentDic().insertFromDB();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        getCurrentDic().insertFromFile(getCurrentDic().getBookMarkFile(), getCurrentDic().getBookMark());
         setLanguage();
         for (Word temp : getCurrentDic().getWordList()) {
             searchList.add(temp.getWord_target());
@@ -44,7 +49,7 @@ public class SearchController extends Controller implements Initializable {
         searchWordTemp.clear();
         searchList.clear();
         String word = searchField.getText();
-        searchWordTemp = getCurrentDic().dictionarySearcher(word.toLowerCase());
+        searchWordTemp = getCurrentDic().dictionarySearcher(word.toLowerCase(), getCurrentDic().getWordList());
         setSearchListViewItem();
     }
 
@@ -55,7 +60,7 @@ public class SearchController extends Controller implements Initializable {
         if (spelling == null) {
             return;
         }
-        Word res = getCurrentDic().dictionaryLookup(spelling);
+        Word res = getCurrentDic().dictionaryLookup(spelling, getCurrentDic().getWordList());
         definitionView.getEngine().loadContent(res.getWord_explain());
     }
 

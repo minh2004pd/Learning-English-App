@@ -1,0 +1,60 @@
+#The __________ is a large mammal that lives in
+*elephant,lion,whale,giraffe
+=2
+#She is a talented __________ and often performs in musicals.
+*dancer,singer,actor,painter
+=1
+#The __________ is the largest planet in our solar system.
+*Mars,Venus,Jupiter,Saturn
+=2
+#My grandfather served in the __________ during World War II.
+*army,navy,air force,marines
+=0
+#The __________ is a small, nocturnal mammal that can fly.
+*bat,squirrel,rabbit,mouse
+=0
+#She plays the __________ in the school orchestra.
+*guitar,piano,violin,drums
+=2
+#The __________ is the largest organ in the human body.
+*heart,liver,brain,skin
+=3
+#The __________ is a famous landmark in Paris, France.
+*Statue of Liberty,Eiffel Tower,Great Wall of China,Taj Mahal
+=1
+#English is widely spoken as a __________ language around the world.
+*primary,secondary,official,foreign
+=2
+#The __________ is a popular tourist destination known for its beautiful beaches.
+*city,mountain,desert,island
+=3
+#She is studying to become a __________ and help people with their health.
+*doctor,lawyer,engineer,teacher
+=0
+#The __________ is a large reptile that lives in water and on land.
+*snake,turtle,crocodile,lizard
+=2
+#The __________ is a famous painting by Leonardo da Vinci.
+*Mona Lisa,Starry Night,The Last Supper,The Scream
+=0
+#She speaks three __________ fluently: English, French, and Spanish.
+*languages,countries,cities,continents
+=0
+#The __________ is a musical instrument with black and white keys.
+*guitar,piano,trumpet,flute
+=1
+#The __________ is a popular sport played with a round ball.
+*basketball,tennis,golf,cricket
+=0
+#The __________ is a large bird that cannot fly and is native to New Zealand.
+*eagle,penguin,ostrich,flamingo
+=1
+#The __________ is a famous scientist who developed the theory of relativity.
+*Isaac Newton,Albert Einstein,Marie Curie,Charles Darwin
+=1
+#The __________ is a popular social media platform used by millions of people.
+*Facebook,Twitter,Instagram,Snapchat
+=2
+#She loves to read __________ and often finishes a book in a day.
+*novels,newspapers,magazines,comics
+=0

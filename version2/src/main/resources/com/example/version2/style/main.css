@@ -57,15 +57,15 @@
 }
 
 .button-search {
-    -fx-graphic: url('../icon/normal/search.png');
+    -fx-graphic: url('../icon/normal/search1.png');
 }
 
 .button-search:hover {
-    -fx-graphic: url('../icon/hover/search.png');
+    -fx-graphic: url('../icon/hover/search1.png');
 }
 
 .button-search.active {
-    -fx-graphic: url('../icon/hover/search.png');
+    -fx-graphic: url('../icon/hover/search1.png');
 }
 
 .button-translate {
@@ -81,15 +81,15 @@
 }
 
 .button-favourite {
-    -fx-graphic: url('../icon/normal/favourite.png');
+    -fx-graphic: url('../icon/normal/bookmark.png');
 }
 
 .button-favourite:hover {
-    -fx-graphic: url('../icon/hover/favourite.png');
+    -fx-graphic: url('../icon/hover/bookmark.png');
 }
 
 .button-favourite.active {
-    -fx-graphic: url('../icon/hover/favourite.png');
+    -fx-graphic: url('../icon/hover/bookmark.png');
 }
 
 .button-history {
@@ -114,4 +114,16 @@
 
 .button-setting.active {
     -fx-graphic: url('../icon/hover/setting.png');
+}
+
+.button-exam {
+    -fx-graphic: url('../icon/normal/exam.png');
+}
+
+.button-exam:hover {
+    -fx-graphic: url('../icon/hover/exam.png');
+}
+
+.button-exam.active {
+    -fx-graphic: url('../icon/hover/exam.png');
 }

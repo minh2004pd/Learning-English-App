@@ -5,27 +5,31 @@ import java.util.Collections;
 
 public class Dictionary {
     protected ArrayList<Word> wordList;
+    protected ArrayList<Word> bookMark;
+    protected ArrayList<Word> history;
 
     public Dictionary() {
         wordList = new ArrayList<Word>();
+        bookMark = new ArrayList<Word>();
+        history = new ArrayList<Word>();
     }
 
     /**
      * add word to dictionary and sort it.
      * @param word word to add
      */
-    public void addWord(Word word) {
-        wordList.add(word);
-        Collections.sort(wordList, (word1, word2) -> word1.getWord_target().compareTo(word2.getWord_target()));
+    public void addWord(Word word, ArrayList<Word> list) {
+        list.add(word);
+        Collections.sort(list, (word1, word2) -> word1.getWord_target().compareTo(word2.getWord_target()));
     }
 
     /**
      * remove word from dictionary and sort it.
      * @param word word to remove
      */
-    public void removeWord(Word word) {
-        wordList.remove(word);
-        Collections.sort(wordList, (word1, word2) -> word1.getWord_target().compareTo(word2.getWord_target()));
+    public void removeWord(Word word, ArrayList<Word> list) {
+        list.remove(word);
+        Collections.sort(list, (word1, word2) -> word1.getWord_target().compareTo(word2.getWord_target()));
     }
 
     /**
@@ -33,7 +37,7 @@ public class Dictionary {
      * @param word word to update
      * @param newExplain new explain
      */
-    public void updateWordExplain(Word word, String newExplain) {
+    public void updateWordExplain(Word word, String newExplain, ArrayList<Word> list) {
         word.setWord_explain(newExplain);
     }
 
@@ -49,5 +53,13 @@ public class Dictionary {
 
     public ArrayList<Word> getWordList() {
         return wordList;
+    }
+
+    public ArrayList<Word> getBookMark() {
+        return bookMark;
+    }
+
+    public ArrayList<Word> getHistory() {
+        return history;
     }
 }

@@ -22,15 +22,18 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 public class Controller extends MainController implements Initializable {
-    private MediaPlayer mediaPlayer;
-    protected DictionaryManagement dictionaryManagement = new DictionaryManagement();
+    protected static DictionaryManagement dictionaryManagement = new DictionaryManagement();
     private DictionaryAdvance dictionaryAdvance = new DictionaryAdvance();
+    private MediaPlayer mediaPlayer;
     private static final String EV_PATH = "../data/dictionaries.txt";
 
-    protected final ObservableList<String> searchList = FXCollections.observableArrayList();
+    protected ObservableList<String> searchList = FXCollections.observableArrayList();
+    protected ObservableList<String> bookmarkSearch = FXCollections.observableArrayList();
 
     @FXML
     protected ListView<String> wordListView;
+    @FXML
+    protected ListView<String> wordListView1;
     @FXML
     protected WebView definitionView;
     @FXML
@@ -75,7 +78,6 @@ public class Controller extends MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
-
     }
 
     public void showWarningAlert() {
@@ -186,14 +188,17 @@ public class Controller extends MainController implements Initializable {
         }
         ButtonType yes = new ButtonType("Có", ButtonBar.ButtonData.OK_DONE);
         ButtonType no = new ButtonType("Không", ButtonBar.ButtonData.CANCEL_CLOSE);
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn có chắc chắn muốn xoá từ này không?", yes, no);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn có chắc chắn muốn xoá từ này \n khỏi danh sách từ đã lưu không?", yes, no);
         alert.setTitle("Thông báo");
         alert.setHeaderText(null);
         alert.showAndWait();
 
         if (alert.getResult() == yes) {
-            Word target = getCurrentDic().dictionaryLookup(spelling);
-            getCurrentDic().removeFromCommandline(spelling);
+            Word target = getCurrentDic().dictionaryLookup(spelling, getCurrentDic().getWordList());
+            getCurrentDic().removeFromCommandline(spelling, getCurrentDic().getWordList());
+            getCurrentDic().removeFromCommandline(spelling, getCurrentDic().getHistory());
+            getCurrentDic().removeFromCommandline(spelling, getCurrentDic().getBookMark());
+
             WordDAO.getInstance().delete(target);
 //            getCurrentDic().getWordList().clear();
 //            getCurrentDic().insertFromFile();
@@ -230,7 +235,7 @@ public class Controller extends MainController implements Initializable {
         isOnEditDefinition = true;
         saveChangeButton.setVisible(true);
         editDefinition.setVisible(true);
-        Word w = getCurrentDic().dictionaryLookup(spelling);
+        Word w = getCurrentDic().dictionaryLookup(spelling, getCurrentDic().getWordList());
         String meaning = w.getWord_explain();
         editDefinition.setHtmlText(meaning);
     }
@@ -249,15 +254,48 @@ public class Controller extends MainController implements Initializable {
 
         String newMeaning = editDefinition.getHtmlText().replace(" dir=\"ltr\"", "");
         String spelling = searchField.getText();
-        Word word = getCurrentDic().dictionaryLookup(spelling);
-        getCurrentDic().updateFromCommandline(word, newMeaning);
+        Word word = getCurrentDic().dictionaryLookup(spelling, getCurrentDic().getWordList());
+        getCurrentDic().updateFromCommandline(word, newMeaning, getCurrentDic().getWordList());
+        Word word1 = getCurrentDic().dictionaryLookup(spelling, getCurrentDic().getBookMark());
+        getCurrentDic().updateFromCommandline(word1, newMeaning, getCurrentDic().getBookMark());
+        getCurrentDic().dictionaryExportToFile(getCurrentDic().getBookMarkFile(),
+                                               getCurrentDic().getBookMark());
         getCurrentDic().updateToDB(word);
 //        getCurrentDic().getWordList().clear();
 //        getCurrentDic().insertFromFile();
-//        saveWordToFile(getCurrentDic().getPATH(), getCurrentDic().getVocab(), spelling, newMeaning);
-//        saveWordToFile(getCurrentDic().getHISTORY_PATH(), getCurrentDic().getHistoryVocab(), spelling, newMeaning);
-//        saveWordToFile(getCurrentDic().getBOOKMARK_PATH(), getCurrentDic().getBookmarkVocab(), spelling, newMeaning);
         definitionView.getEngine().loadContent(newMeaning, "text/html");
+    }
+
+    public void addBookmark(Word word) {
+        bookmarkFalse.setVisible(false);
+        bookmarkTrue.setVisible(true);
+        getCurrentDic().insertFromCommandline(word, getCurrentDic().getBookMark());
+        getCurrentDic().dictionaryExportToFile(getCurrentDic().getBookMarkFile(), getCurrentDic().getBookMark());
+    }
+
+    private void removeBookmark(Word word) {
+        bookmarkFalse.setVisible(true);
+        bookmarkTrue.setVisible(false);
+        getCurrentDic().removeFromCommandline(word.getWord_target(), getCurrentDic().getBookMark());
+        getCurrentDic().dictionaryExportToFile(getCurrentDic().getBookMarkFile(), getCurrentDic().getBookMark());
+    }
+
+    @FXML
+    public void handleClickBookmarkButton() {
+        String spelling = searchField.getText();
+        if (spelling.equals("")) {
+            showWarningAlert();
+            return;
+        }
+
+        Word target = getCurrentDic().dictionaryLookup(spelling, getCurrentDic().getBookMark());
+        if (target != null) {
+            removeBookmark(target);
+            System.out.println(getCurrentDic().getBookMark().size());
+        } else {
+            addBookmark(getCurrentDic().dictionaryLookup(spelling, getCurrentDic().getWordList()));
+            System.out.println(getCurrentDic().getBookMark().size());
+        }
     }
 
 }

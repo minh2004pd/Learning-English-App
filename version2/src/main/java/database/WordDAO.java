@@ -82,7 +82,7 @@ public class WordDAO implements DAOInterface<Word> {
     }
 
     @Override
-    public ArrayList<Word> selectAll() {
+    public ArrayList<Word> selectAll() throws Exception {
         ArrayList<Word> res = new ArrayList<Word>();
         try {
             Connection c = JDBCUtil.getConnection();
@@ -103,7 +103,7 @@ public class WordDAO implements DAOInterface<Word> {
 
             JDBCUtil.closeConnection(c);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
         return res;

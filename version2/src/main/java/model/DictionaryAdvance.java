@@ -22,7 +22,7 @@ public class DictionaryAdvance extends Dictionary {
      * insert from file.
      * @param file file to insert
      */
-    public boolean insertFromFile(File file) {
+    public boolean insertFromFile(File file, ArrayList<Word> list) {
         try {
             br = Files.newBufferedReader(file.toPath(), StandardCharsets.UTF_8);
             String line;
@@ -31,9 +31,9 @@ public class DictionaryAdvance extends Dictionary {
                 if (line == null) {
                     break;
                 } else {
-                    String[] word = line.split("\t|  +");
-                    Word neWord = new Word(word[0].toLowerCase(), word[1].toLowerCase());
-                    this.addWord(neWord);
+                    String[] word = line.split("\t");
+                    Word newWord = new Word(word[0].toLowerCase(), word[1].toLowerCase());
+                    this.addWord(newWord, list);
                 }
             }
 
@@ -48,13 +48,13 @@ public class DictionaryAdvance extends Dictionary {
      * remove from file.
      * @param file file to remove
      */
-    public boolean dictionaryExportToFile(File file) {
+    public boolean dictionaryExportToFile(File file, ArrayList<Word> list) {
         try {
             FileWriter fileWriter = new FileWriter(file, false);
             PrintWriter pw = new PrintWriter(fileWriter, true); // Enable auto-flush
 
-            for (int i = 0; i < wordList.size(); i++) {
-                Word w = wordList.get(i);
+            for (int i = 0; i < list.size(); i++) {
+                Word w = list.get(i);
                 pw.println(w.getWord_target() + "\t" + w.getWord_explain());
             }
 
@@ -65,8 +65,11 @@ public class DictionaryAdvance extends Dictionary {
         }
     }
 
-    public boolean insertFromDB() {
+    public boolean insertFromDB() throws Exception {
         wordList = WordDAO.getInstance().selectAll();
+        if (wordList.size() == 0) {
+            return false;
+        }
         return true;
     }
 

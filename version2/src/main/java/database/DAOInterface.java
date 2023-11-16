@@ -9,7 +9,7 @@ public interface DAOInterface<T> {
 
     public int delete(T t);
 
-    public ArrayList<T> selectAll();
+    public ArrayList<T> selectAll() throws Exception;
 
     public T selectById(T t);
 

@@ -1,0 +1,58 @@
+.root {
+    -button-color: #747f8d;
+    -hover-button-color: #2e3338;
+
+    -purple-color: #5865F2;
+    -hover-purple-color: #4752C4;
+
+    -text-color: #555c5d;
+    -hover-text-color: #2e3338;
+
+    -gray-color: #e6e6e6;
+    -title-color: #060607;
+    -hover-background-color: #D4D7DC;
+
+    -fx-background-color: #1E1E1E;
+}
+
+#question {
+    -fx-text-fill: black;
+}
+
+#username {
+    -fx-text-fill: black;
+}
+
+.next-button.visible {
+    -fx-opacity: 0;
+    -fx-cursor: none;
+}
+
+.previous-button.visible {
+    -fx-opacity: 0;
+    -fx-cursor: none;
+}
+
+.question-label {
+    -fx-text-fill: white;
+}
+
+.score-label {
+    -fx-text-fill: white;
+}
+
+.text-field {
+    -fx-alignment: center;
+}
+
+.radio-button {
+    -fx-text-fill: white;
+}
+
+.next-button {
+    -fx-text-fill: white;
+}
+
+.previous-button {
+    -fx-text-fill: white;
+}

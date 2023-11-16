@@ -11,7 +11,7 @@ import com.voicerss.tts.VoiceProvider;
 
 public class TextToSpeech {
     private static final String API_KEY = "7f7e8aa4dfa84aec95c756c15ceb8109";
-    private static final String AUDIO_PATH = "D:\\version2\\src\\main\\resources\\audio.wav";
+    private static final String AUDIO_PATH = "/audio.wav";
 
     public static String voiceNameUS;
     public static String voiceNameUK;
@@ -38,10 +38,10 @@ public class TextToSpeech {
                 // Play the voice
                 playAudio(voice);
 
-                FileOutputStream fos = new FileOutputStream(AUDIO_PATH);
-                fos.write(voice, 0, voice.length);
-                fos.flush();
-                fos.close();
+//                FileOutputStream fos = new FileOutputStream(this.getClass().getResource(AUDIO_PATH).toURI());
+//                fos.write(voice, 0, voice.length);
+//                fos.flush();
+//                fos.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
