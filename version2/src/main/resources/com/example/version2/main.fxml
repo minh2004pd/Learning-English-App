@@ -58,7 +58,7 @@
                               <String fx:value="button-history" />
                           </styleClass>
                       </Button>
-                      <Button fx:id="examButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#showPlayerPane" prefHeight="58.0" prefWidth="57.0" text="Kiểm tra" textFill="#8e9297">
+                      <Button fx:id="examButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#showExamPane" prefHeight="58.0" prefWidth="57.0" text="Kiểm tra" textFill="#8e9297">
                           <font>
                               <Font size="7.0" />
                           </font>

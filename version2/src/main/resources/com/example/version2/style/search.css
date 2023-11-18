@@ -134,20 +134,21 @@
     -fx-background-color: none;
 }
 
-.button-favourite-false {
-    -fx-graphic: url('../icon/normal/favourite.png');
+.button-favourite {
+    -fx-graphic: url('../icon/normal/bookmark.png');
 }
 
-.button-favourite-false:hover {
-    -fx-graphic: url('../icon/hover/favourite.png');
+.button-favourite:hover {
+    -fx-graphic: url('../icon/hover/bookmark.png');
 }
 
-.button-favourite-true {
-    -fx-graphic: url('../icon/hover/favourite.png');
+.button-favourite.active {
+    -fx-graphic: url('../icon/hover/bookmark.png');
+
 }
 
-.button-favourite-true:hover {
-    -fx-graphic: url('../icon/normal/favourite.png');
+.button-favourite.active:hover {
+    -fx-graphic: url('../icon/normal/bookmark.png');
 }
 
 .button-save {

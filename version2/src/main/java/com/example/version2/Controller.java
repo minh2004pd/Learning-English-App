@@ -43,9 +43,7 @@ public class Controller extends MainController implements Initializable {
     @FXML
     protected TextField searchField;
     @FXML
-    protected Button bookmarkTrue;
-    @FXML
-    protected Button bookmarkFalse;
+    protected Button bookmark;
     @FXML
     protected Button removeButton;
     @FXML
@@ -182,7 +180,7 @@ public class Controller extends MainController implements Initializable {
     @FXML
     public void handleClickRemoveButton(String word) {
         String spelling = word;
-        if (spelling.equals("")) {
+        if (spelling == null || spelling.equals("")) {
             showWarningAlert();
             return;
         }
@@ -267,15 +265,15 @@ public class Controller extends MainController implements Initializable {
     }
 
     public void addBookmark(Word word) {
-        bookmarkFalse.setVisible(false);
-        bookmarkTrue.setVisible(true);
+        bookmark.setVisible(true);
+        bookmark.getStyleClass().add("active");
         getCurrentDic().insertFromCommandline(word, getCurrentDic().getBookMark());
         getCurrentDic().dictionaryExportToFile(getCurrentDic().getBookMarkFile(), getCurrentDic().getBookMark());
     }
 
     private void removeBookmark(Word word) {
-        bookmarkFalse.setVisible(true);
-        bookmarkTrue.setVisible(false);
+        bookmark.setVisible(true);
+        bookmark.getStyleClass().removeAll("active");
         getCurrentDic().removeFromCommandline(word.getWord_target(), getCurrentDic().getBookMark());
         getCurrentDic().dictionaryExportToFile(getCurrentDic().getBookMarkFile(), getCurrentDic().getBookMark());
     }

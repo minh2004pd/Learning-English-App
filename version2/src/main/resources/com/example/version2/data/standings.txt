@@ -1,0 +1,15 @@
+sdf	15
+sdf	15
+a	15
+sdf	15
+as	10
+sdf	10
+sdfddf	0
+sdf	0
+g	0
+	0
+sdf	0
+	0
+	0
+sdf	0
+	0

@@ -23,10 +23,24 @@ public class BookMarkController extends Controller implements Initializable {
         setBookmarkListViewItem();
     }
 
-    protected void setBookmarkListViewItem() {
+    protected void initBookmarkListViewItem() {
         bookmarkSearch.clear();
         bookmarkTemp.clear();
         bookmarkTemp.addAll(getCurrentDic().getBookMark());
+        if (wordListView1 != null) {
+            wordListView1.getItems().clear();
+            for (int i = 0; i < bookmarkTemp.size(); i++) {
+                bookmarkSearch.add(bookmarkTemp.get(i).getWord_target());
+            }
+            wordListView1.setItems(bookmarkSearch);
+        } else {
+            System.out.println("wordListView1 is null"); // Optional error message or handling
+        }
+    }
+
+
+    protected void setBookmarkListViewItem() {
+        bookmarkSearch.clear();
         if (wordListView1 != null) {
             wordListView1.getItems().clear();
             for (int i = 0; i < bookmarkTemp.size(); i++) {

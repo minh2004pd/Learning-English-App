@@ -61,6 +61,12 @@ public class SearchController extends Controller implements Initializable {
             return;
         }
         Word res = getCurrentDic().dictionaryLookup(spelling, getCurrentDic().getWordList());
+        bookmark.setVisible(true);
+        if (getCurrentDic().dictionaryLookup(spelling, getCurrentDic().getBookMark()) != null) {
+            bookmark.getStyleClass().add("active");
+        } else {
+            bookmark.getStyleClass().removeAll("active");
+        }
         definitionView.getEngine().loadContent(res.getWord_explain());
     }
 

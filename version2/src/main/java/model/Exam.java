@@ -2,14 +2,18 @@ package model;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Exam {
     private String userName;
+    protected Random rand = new Random();
     private List<Questions> questionsList = new ArrayList<>();
+    private List<Questions> questionsListTemp = new ArrayList<>();
     private File file = new File("D:\\version2\\src\\main\\resources\\com\\example\\version2\\data\\questions.txt");
     private BufferedReader br;
     private int score = 0;
@@ -19,14 +23,19 @@ public class Exam {
     public Exam(String userName, int score) {
         this.userName = userName;
         this.score = score;
+        insertFromFile();
     }
 
     public void addQuestions(Questions questions) {
         this.questionsList.add(questions);
     }
 
+    /**
+     * get question list
+     * @return questionListTemp
+     */
     public List<Questions> getQuestionsList() {
-        return this.questionsList;
+        return this.questionsListTemp;
     }
 
     public int getScore() {
@@ -41,9 +50,15 @@ public class Exam {
         score += points;
     }
 
-    public void decreaseScore(int points) {
-        if (score - points >= 0) {
-            score -= points;
+    public void setExam() {
+        questionsListTemp.clear();
+        List<Integer> c = new ArrayList<>();
+        while (questionsListTemp.size() < 10) {
+            int randomNum = rand.nextInt(questionsList.size()); // generate a random number in the range 0-19
+            if (!c.contains(randomNum)) {
+                c.add(randomNum);
+                questionsListTemp.add(questionsList.get(randomNum));
+            }
         }
     }
 
@@ -89,8 +104,12 @@ public class Exam {
         System.out.println();
     }
 
+    /**
+     * get size of questionListTemp
+     * @return size of questionListTemp
+     */
     public int getSize() {
-        return questionsList.size();
+        return questionsListTemp.size();
     }
 
     public String getUserName() {
@@ -100,4 +119,13 @@ public class Exam {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    public int compareTo(Exam other) {
+        return Integer.compare(other.getScore(), this.score);
+    }
+
+    public String getInfo() {
+        return getUserName() + " - " + getScore();
+    }
+
 }

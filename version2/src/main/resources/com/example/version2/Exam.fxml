@@ -2,47 +2,88 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.Node?>
 
-<AnchorPane fx:id="mainContent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1E1E1E;" stylesheets="@style/exam.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.version2.ExamController">
+<?import java.lang.String?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #1E1E1E;" stylesheets="@style/exam.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.version2.ExamController">
    <children>
-      <AnchorPane prefHeight="125.0" prefWidth="800.0">
+      <AnchorPane fx:id="standingsPane" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <HBox alignment="CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="159.0">
+            <ListView fx:id="standingsView" layoutX="300.0" layoutY="162.0" prefHeight="294.0" prefWidth="200.0" />
+            <HBox layoutX="342.0" layoutY="93.0" prefHeight="21.0" prefWidth="124.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="80.0" styleClass="question-label" text="Question:" />
-                  <Text fx:id="level" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
-                  <Label prefWidth="33.0" text="/ 20" textFill="WHITE" />
+                  <Label alignment="CENTER" prefHeight="13.0" prefWidth="63.0" text="Score" textFill="WHITE" />
+                  <Text fx:id="finalScore" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="57.6708984375" />
                </children>
             </HBox>
-            <HBox layoutX="370.0" layoutY="74.0" prefHeight="21.0" prefWidth="80.0">
+            <Button fx:id="playAgain" layoutX="356.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#handlePlayagain" prefHeight="20.0" prefWidth="88.0" text="play again" />
+            <Text fx:id="username1" fill="WHITE" layoutX="344.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="112.6708984375" />
+            <AnchorPane fx:id="mainContent" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="examPane" prefHeight="600.0" prefWidth="800.0">
+         <HBox layoutX="694.0" prefHeight="31.0" prefWidth="106.0">
+            <children>
+               <Label text="Time: " textFill="WHITE" />
+               <Text fx:id="time" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="50.6708984375" />
+            </children>
+         </HBox>
+         <children>
+            <AnchorPane prefHeight="125.0" prefWidth="800.0">
                <children>
-                  <Label text="Score: " textFill="WHITE" />
-                  <Text fx:id="score" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="100" wrappingWidth="28.2578125" />
+                  <HBox alignment="CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="159.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="80.0" text="Questions: " styleClass="question-label" />
+                        <Text fx:id="level" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                        <Label prefWidth="33.0" text="/ 10" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="370.0" layoutY="74.0" prefHeight="21.0" prefWidth="80.0">
+                     <children>
+                        <Label styleClass="current-score" text="Score: " textFill="WHITE" />
+                        <Text fx:id="score" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="100" wrappingWidth="28.2578125" />
+                     </children>
+                  </HBox>
+                  <Text fx:id="user_name" fill="WHITE" layoutX="350.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="99.6708984375" />
                </children>
-            </HBox>
-            <Text fx:id="user_name" fill="WHITE" layoutX="350.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="99.6708984375" />
+            </AnchorPane>
+            <AnchorPane layoutY="125.0" prefHeight="384.0" prefWidth="800.0">
+               <children>
+                  <TextField fx:id="question" alignment="CENTER" layoutX="195.0" layoutY="55.0" prefHeight="110.0" prefWidth="414.0" />
+                  <RadioButton fx:id="answerA" layoutX="203.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="A" textFill="WHITE" />
+                  <RadioButton fx:id="answerC" layoutX="203.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="C" textFill="WHITE" />
+                  <RadioButton fx:id="answerB" layoutX="489.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="B" textFill="WHITE" />
+                  <RadioButton fx:id="answerD" layoutX="489.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="D" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="509.0" prefHeight="94.0" prefWidth="800.0">
+               <children>
+                  <Button fx:id="submit" styleClass="submit-question" layoutX="350.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#hanldeSubmit" textFill="WHITE" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="125.0" prefHeight="384.0" prefWidth="800.0">
+      <AnchorPane fx:id="playerPane" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <TextField fx:id="question" alignment="CENTER" layoutX="195.0" layoutY="55.0" prefHeight="110.0" prefWidth="414.0" />
-            <RadioButton onMouseClicked="#handleChoice" fx:id="answerA" layoutX="203.0" layoutY="202.0" mnemonicParsing="false" text="A" textFill="WHITE" />
-            <RadioButton onMouseClicked="#handleChoice" fx:id="answerC" layoutX="203.0" layoutY="281.0" mnemonicParsing="false" text="C" textFill="WHITE" />
-            <RadioButton onMouseClicked="#handleChoice" fx:id="answerB" layoutX="489.0" layoutY="202.0" mnemonicParsing="false" text="B" textFill="WHITE" />
-            <RadioButton onMouseClicked="#handleChoice" fx:id="answerD" layoutX="489.0" layoutY="270.0" mnemonicParsing="false" text="D" textFill="WHITE" />
+            <AnchorPane>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="BOTTOM" layoutX="347.0" layoutY="226.0" prefHeight="36.0" prefWidth="106.0" text="username" textFill="WHITE" >
+                     <styleClass>
+                        <String fx:value="user-name" />
+                     </styleClass>
+                  </Label>
+                  <TextField fx:id="username" layoutX="278.0" layoutY="283.0" prefHeight="61.0" prefWidth="248.0" />
+                  <Button fx:id="submit_username" styleClass="submit-user-name-button" layoutX="347.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#createNewUser" prefHeight="31.0" prefWidth="106.0" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="509.0" prefHeight="94.0" prefWidth="800.0">
-         <children>
-            <Button fx:id="next" styleClass="next-button" onMouseClicked="#handleNext" layoutX="630.0" layoutY="32.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" text="next" textFill="WHITE" />
-            <Button fx:id="previous" styleClass="previous-button" onMouseClicked="#handlePrevious" layoutX="140.0" layoutY="32.0" mnemonicParsing="false" text="previous" textFill="WHITE" />
-            <Button fx:id="submit" onMouseClicked="#hanldeSubmit" layoutX="393.0" layoutY="32.0" mnemonicParsing="false" text="submit" textFill="WHITE" />
-         </children>
-      </AnchorPane>
+      <AnchorPane fx:id="content" />
    </children>
 </AnchorPane>

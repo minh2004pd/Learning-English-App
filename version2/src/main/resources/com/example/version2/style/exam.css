@@ -56,3 +56,15 @@
 .previous-button {
     -fx-text-fill: white;
 }
+
+.submit-user-name-button {
+    -fx-graphic: url('../icon/hover/submit.png');
+}
+
+.user-name {
+    -fx-graphic: url('../icon/hover/user.png');
+}
+
+.submit-question {
+     -fx-graphic: url('../icon/hover/square-arrow.png');
+}

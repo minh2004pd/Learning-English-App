@@ -21,11 +21,8 @@ public class MainController implements Initializable {
     private AnchorPane bookmarkPane;
     @FXML
     protected AnchorPane examPane;
-    @FXML
-    private AnchorPane playerPane;
     private  SearchController searchController;
     private BookMarkController bookMarkController;
-    private PlayerController examController;
 
     @FXML
     private Button searchButton;
@@ -74,14 +71,14 @@ public class MainController implements Initializable {
         resetNav();
         bookmarkButton.getStyleClass().add("active");
         setMainContent(bookmarkPane);
-        bookMarkController.setBookmarkListViewItem();
+        bookMarkController.initBookmarkListViewItem();
     }
 
     @FXML
-    public void showPlayerPane() {
+    public void showExamPane() {
         resetNav();
         examButton.getStyleClass().add("active");
-        setMainContent(playerPane);
+        setMainContent(examPane);
     }
 
     @Override
@@ -112,14 +109,6 @@ public class MainController implements Initializable {
             e.printStackTrace();
         }
 
-        // Player tab
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("playWindow.fxml"));
-            playerPane = loader.load();
-            examController = loader.getController();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         // Exam tab
         try {
