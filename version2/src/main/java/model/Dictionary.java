@@ -6,12 +6,10 @@ import java.util.Collections;
 public class Dictionary {
     protected ArrayList<Word> wordList;
     protected ArrayList<Word> bookMark;
-    protected ArrayList<Word> history;
 
     public Dictionary() {
         wordList = new ArrayList<Word>();
         bookMark = new ArrayList<Word>();
-        history = new ArrayList<Word>();
     }
 
     /**
@@ -57,9 +55,5 @@ public class Dictionary {
 
     public ArrayList<Word> getBookMark() {
         return bookMark;
-    }
-
-    public ArrayList<Word> getHistory() {
-        return history;
     }
 }

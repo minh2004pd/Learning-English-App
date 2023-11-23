@@ -21,6 +21,8 @@ public class MainController implements Initializable {
     private AnchorPane bookmarkPane;
     @FXML
     protected AnchorPane examPane;
+    @FXML
+    protected AnchorPane addPane;
     private  SearchController searchController;
     private BookMarkController bookMarkController;
 
@@ -36,6 +38,8 @@ public class MainController implements Initializable {
     private Button settingButton;
     @FXML
     private Button examButton;
+    @FXML
+    private Button addButton;
 
     public void setMainContent(AnchorPane anchorPane) {
         mainContent.getChildren().setAll(anchorPane);
@@ -46,16 +50,16 @@ public class MainController implements Initializable {
         searchButton.getStyleClass().removeAll("active");
         translateButton.getStyleClass().removeAll("active");
         bookmarkButton.getStyleClass().removeAll("active");
-        mainHistoryButton.getStyleClass().removeAll("active");
         settingButton.getStyleClass().removeAll("active");
         examButton.getStyleClass().removeAll("active");
+        addButton.getStyleClass().removeAll("active");
     }
 
     @FXML
     public void showSearchPan() {
         resetNav();
         searchButton.getStyleClass().add("active");
-        // SearchController.initSearchListView();
+        searchController.setSearchListViewItem();
         setMainContent(searchPane);
     }
 
@@ -79,6 +83,13 @@ public class MainController implements Initializable {
         resetNav();
         examButton.getStyleClass().add("active");
         setMainContent(examPane);
+    }
+
+    @FXML
+    public void showAddPane() {
+        resetNav();
+        addButton.getStyleClass().add("active");
+        setMainContent(addPane);
     }
 
     @Override
@@ -114,6 +125,14 @@ public class MainController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Exam.fxml"));
             examPane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Add tab
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("addWords.fxml"));
+            addPane = loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }

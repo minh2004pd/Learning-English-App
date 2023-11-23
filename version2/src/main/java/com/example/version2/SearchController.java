@@ -25,10 +25,8 @@ public class SearchController extends Controller implements Initializable {
         }
         getCurrentDic().insertFromFile(getCurrentDic().getBookMarkFile(), getCurrentDic().getBookMark());
         setLanguage();
-        for (Word temp : getCurrentDic().getWordList()) {
-            searchList.add(temp.getWord_target());
-        }
-        wordListView.setItems(searchList);
+        searchWordTemp.addAll(getCurrentDic().getWordList());
+        setSearchListViewItem();
         setLanguage();
     }
 

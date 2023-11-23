@@ -1,0 +1,106 @@
+.root {
+    -button-color: #747f8d;
+    -hover-button-color: #2e3338;
+
+    -purple-color: #5865F2;
+    -hover-purple-color: #4752C4;
+
+    -text-color: #555c5d;
+    -hover-text-color: #2e3338;
+
+    -gray-color: #e6e6e6;
+    -title-color: #060607;
+    -hover-background-color: #D4D7DC;
+}
+
+.english-class {
+    -fx-graphic: url('../icon/normal/uk.png');
+}
+
+.english-class:hover {
+    -fx-background-color: none;
+    -fx-text-fill: -text-color;
+    -fx-font-size: 11;
+    -fx-cursor: default;
+}
+
+.english-label {
+    -fx-font-family: "cursive";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.english-part {
+    -fx-background-color: linear-gradient(to right, #5242e0, #a72dd6);
+    -fx-opacity: 0.8;
+}
+
+.vietnamese-class {
+    -fx-graphic: url('../icon/normal/vietnam.png');
+}
+
+.vietnamese-class:hover {
+    -fx-background-color: none;
+    -fx-text-fill: -text-color;
+    -fx-font-size: 11;
+    -fx-cursor: default;
+}
+
+.vietnamese-label {
+    -fx-font-family: "cursive";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.vietnamse-part {
+    -fx-background-color: linear-gradient(to right, #5242e0, #a72dd6);
+    -fx-opacity: 0.8;
+}
+
+#add-button {
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to right, #4CAF50, #45A049);
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+}
+
+#add-button:hover {
+    -fx-background-color: linear-gradient(to right, #45A049, #4CAF50);
+}
+
+.add-tab {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
+}
+
+.english-part {
+    -fx-border-color: #1E1E1E;
+    -fx-border-width: 3px;
+    -fx-border-radius: 5px 0px 0px 5px;
+}
+
+.vietnamse-part {
+    -fx-border-color: #1E1E1E;
+    -fx-border-width: 3px;
+    -fx-border-radius: 0px 5px 5px 0px;
+}
+
+#word_target_text {
+    -fx-border-color: #1E1E1E; /* Border color */
+    -fx-border-width: 3px; /* Border width */
+    -fx-border-radius: 3px; /* Border radius */
+    -fx-background-color: #f5f5f5; /* Background color */
+    -fx-font-family: cursive, Arial;
+}
+
+#word_explain_text {
+    -fx-border-color: #1E1E1E; /* Border color */
+    -fx-border-width: 3px; /* Border width */
+    -fx-border-radius: 3px; /* Border radius */
+    -fx-background-color: #f5f5f5; /* Background color */
+    -fx-font-family: cursive, Arial;
+}
+

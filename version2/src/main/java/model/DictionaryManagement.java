@@ -173,8 +173,5 @@ public class DictionaryManagement {
     public ArrayList<Word> getBookMark() {
         return dictionary.getBookMark();
     }
-    public ArrayList<Word> getHistory() {
-        return dictionary.getHistory();
-    }
 
 }

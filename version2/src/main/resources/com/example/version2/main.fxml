@@ -40,7 +40,7 @@
                               <String fx:value="button-translate" />
                           </styleClass>
                       </Button>
-                      <Button fx:id="bookmarkButton" contentDisplay="TOP" onAction="#showWordsMarkPane" mnemonicParsing="false" prefHeight="58.0" prefWidth="57.0" text="Đã lưu" textFill="#47586b">
+                      <Button fx:id="bookmarkButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#showWordsMarkPane" prefHeight="58.0" prefWidth="57.0" text="Đã lưu" textFill="#47586b">
                           <font>
                               <Font size="7.0" />
                           </font>
@@ -49,13 +49,13 @@
                               <String fx:value="button-favourite" />
                           </styleClass>
                       </Button>
-                      <Button fx:id="mainHistoryButton" contentDisplay="TOP" mnemonicParsing="false" prefHeight="58.0" prefWidth="57.0" text="Lịch sử" textFill="#8e9297">
+                      <Button fx:id="addButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#showAddPane" prefHeight="58.0" prefWidth="57.0" text="Thêm từ" textFill="#8e9297">
                           <font>
                               <Font size="7.0" />
                           </font>
                           <styleClass>
                               <String fx:value="text-navi-bar" />
-                              <String fx:value="button-history" />
+                              <String fx:value="button-add" />
                           </styleClass>
                       </Button>
                       <Button fx:id="examButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#showExamPane" prefHeight="58.0" prefWidth="57.0" text="Kiểm tra" textFill="#8e9297">

@@ -68,6 +68,18 @@
     -fx-graphic: url('../icon/hover/search1.png');
 }
 
+.button-add {
+    -fx-graphic: url('../icon/normal/add.png');
+}
+
+.button-add:hover {
+    -fx-graphic: url('../icon/hover/add.png');
+}
+
+.button-add.active {
+    -fx-graphic: url('../icon/hover/add.png');
+}
+
 .button-translate {
     -fx-graphic: url('../icon/normal/translate.png');
 }

@@ -68,3 +68,204 @@
 .submit-question {
      -fx-graphic: url('../icon/hover/square-arrow.png');
 }
+
+.text-area {
+    -fx-font-size: 16px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-alignment: center;
+}
+
+#question {
+    -fx-font-size: 16px;
+    -fx-font-family: Arial, sans-serif;
+}
+
+#answerA, #answerB, #answerC, #answerD {
+    -fx-background-radius: 6px;
+    -fx-border-style: solid;
+    -fx-border-color: #1E1E1E; /* Border color */
+    -fx-border-width: 3px; /* Border width */
+    -fx-border-radius: 5px; /* Border radius */
+    -fx-font-size: 20px;
+    -fx-font-family: cursive, Arial;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to right, #FF4D58, #FF8F40);
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 5px;
+    -fx-min-width: 250px;
+    -fx-min-height: 60px;
+    -fx-alignment: center;
+    -fx-overflow: hidden;
+}
+
+#answerA:hover, #answerB:hover, #answerC:hover, #answerD:hover {
+    -fx-background-color: linear-gradient(to right, #FF8F40, #FF4D58);
+}
+
+#playAgain {
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to right, #2196F3, #1976D2);
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 5px;
+}
+
+#playAgain:hover {
+    -fx-background-color: linear-gradient(to right, #1976D2, #2196F3);
+}
+
+.exam-header {
+    -fx-background-color: linear-gradient(to right, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
+    -fx-padding: 10px;
+}
+
+.exam-header .label {
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-text-fill: white;
+}
+
+.exam-header .text {
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-fill: white;
+    -fx-stroke-type: outside;
+    -fx-stroke-width: 0.0;
+}
+
+.question-label {
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-text-fill: white;
+}
+
+.current-score {
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-text-fill: white;
+}
+
+.exam-center {
+    -fx-background-color: #F5F5F5;
+    -fx-padding: 10px;
+}
+
+.exam-footer {
+    -fx-background-color: linear-gradient(to right, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
+    -fx-padding: 10px;
+}
+
+.submit-question:hover {
+    -fx-background-color: linear-gradient(to right, rgba(233, 30, 99, 0.8), rgba(233, 30, 99, 0.4));
+    -fx-opacity: 1;
+}
+
+.submit-question:pressed {
+    -fx-background-color: linear-gradient(to right, rgba(194, 24, 91, 0.8), rgba(194, 24, 91, 0.4));
+    -fx-opacity: 1;
+}
+
+.player-tab {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
+    -fx-padding: 10px;
+}
+
+.user-name-label {
+    -fx-alignment: center;
+    -fx-pref-height: 36.0;
+    -fx-pref-width: 106.0;
+    -fx-font-size: 14px;
+    -fx-font-family: Arial, sans-serif;
+    -fx-text-fill: white;
+    -fx-content-display: bottom;
+}
+
+.standings-part {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
+}
+
+.standings-list {
+    -fx-background-color: #F5F5F5;
+    -fx-opacity: 0.8;
+}
+
+.score-label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.score-text {
+    -fx-fill: white;
+    -fx-stroke-type: outside;
+    -fx-stroke-width: 0.0;
+    -fx-text-alignment: center;
+}
+
+.playagain-button {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 1), rgba(33, 150, 243, 0.8));
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+}
+
+.username1-text {
+    -fx-fill: white;
+    -fx-stroke-type: outside;
+    -fx-stroke-width: 0.0;
+    -fx-text-alignment: center;
+}
+
+.content-pane {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.6), rgba(33, 150, 243, 0.2));
+}
+
+.standings-list .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-opacity: 0.8;
+}
+
+.standings-list .scroll-bar:vertical .thumb {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
+}
+
+.standings-list .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 1), rgba(33, 150, 243, 0.6));
+}
+
+.standings-list .scroll-bar:vertical .increment-button,
+.standings-list .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+}
+
+.standings-list .scroll-bar:vertical .increment-button .increment-arrow,
+.standings-list .scroll-bar:vertical .decrement-button .decrement-arrow {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
+}
+
+.standings-list .scroll-bar:vertical .increment-button:hover .increment-arrow,
+.standings-list .scroll-bar:vertical .decrement-button:hover .decrement-arrow {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 1), rgba(33, 150, 243, 0.6));
+}
+
+.standings-list .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.standings-list .scroll-bar:vertical .track-background {
+    -fx-background-color: transparent;
+}
+
+.standings-list .scroll-bar:vertical .track-background:hover {
+    -fx-background-color: transparent;
+}
+
+.standings-list .scroll-bar:vertical .track-background:pressed {
+    -fx-background-color: transparent;
+}
+
+.list-view-item {
+    -fx-background-color: #EFEFEF;
+    -fx-padding: 5px;
+    -fx-text-fill: #000000;
+}
+

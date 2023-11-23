@@ -16,7 +16,9 @@
 /* ========================= Button ========================= */
 
 .button-lang {
-    -fx-background-color: -gray-color;
+    -fx-background-color: #FFA500; /* Set the background color to orange */
+    -fx-text-fill: white; /* Set the text color */
+    -fx-opacity: 0.8; /* Set the opacity */
     -fx-min-width: 90;
     -fx-padding: 5;
     -fx-font-size: 12;
@@ -24,7 +26,8 @@
 }
 
 .button-lang.active {
-    -fx-background-color: white;
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #FFA500, #FF8C00); /* Set the gradient background color on hover */
+    -fx-opacity: 1.0; /* Set the opacity on hover */
     -fx-text-fill: -hover-text-color;
 }
 
@@ -58,9 +61,12 @@
 }
 
 .button-translate-submit {
-    -fx-graphic: url('../icon/normal/translate-submit.png');
-    -fx-background-color: -purple-color;
-    -fx-border-radius: 3;
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #FFA500, #FF8C00); /* Set the gradient background color */
+    -fx-opacity: 0.8; /* Set the opacity */
+    -fx-background-radius: 6px;
+    -fx-border-color: #1E1E1E; /* Border color */
+    -fx-border-width: 3px; /* Border width */
+    -fx-border-radius: 5px; /* Border radius */
     -fx-padding: 5;
     -fx-pref-width: 120;
     -fx-pref-height: 30;
@@ -71,14 +77,12 @@
 }
 
 #text1 {
-     -fx-background-color: #1E1E1E;
-     -fx-text-fill: white;
+     -fx-background-color: transparent;
      -fx-background-radius: 20
 }
 
 #text2 {
-     -fx-background-color: #1E1E1E;
-     -fx-text-fill: white;
+     -fx-background-color: transparent;
      -fx-background-radius: 20
 }
 
@@ -98,21 +102,39 @@
 
 .text-area {
     -fx-background-insets: 0;
-    -fx-text-fill: white;
-    -fx-background-color: #1E1E1E;
+    -fx-background-color: #e3e5e8;
 }
 
 .text-area .content {
-    -fx-background-color: #282828;
-    -fx-font-size: 15;
+    -fx-background-color: #e3e5e8;
+    -fx-font-size: 20;
+}
+
+#area1 {
+     -fx-background-radius: 6px;
+     -fx-border-color: #1E1E1E; /* Border color */
+     -fx-border-width: 3px; /* Border width */
+     -fx-border-radius: 5px; /* Border radius */
+     -fx-background-color: #e3e5e8;
+     -fx-font-size: 20px;
+     -fx-font-family: cursive, Arial;
 }
 
 #area2 {
-     -fx-background-color: #282828;
-     -fx-text-fill: white;
+     -fx-background-radius: 6px;
+     -fx-border-color: #1E1E1E; /* Border color */
+     -fx-border-width: 3px; /* Border width */
+     -fx-border-radius: 5px; /* Border radius */
+     -fx-background-color: #e3e5e8;
+     -fx-font-size: 15px;
+     -fx-font-family: cursive, Arial;
 }
 
 .text-area:focused {
     -fx-background-color:white;
     -fx-font-size: 15;
+}
+
+.translate-pane {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
 }

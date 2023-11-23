@@ -76,6 +76,9 @@ public class BookMarkController extends Controller implements Initializable {
     @FXML
     protected void showBookmarkWordDefinition() {
         String selectedWord = wordListView1.getSelectionModel().getSelectedItem();
+        if (selectedWord == null) {
+            return;
+        }
         Word word = getCurrentDic().dictionaryLookup(selectedWord, getCurrentDic().getBookMark());
         String meaning = word.getWord_explain();
         headText.setText(word.getWord_target());

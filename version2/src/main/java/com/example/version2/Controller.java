@@ -194,7 +194,6 @@ public class Controller extends MainController implements Initializable {
         if (alert.getResult() == yes) {
             Word target = getCurrentDic().dictionaryLookup(spelling, getCurrentDic().getWordList());
             getCurrentDic().removeFromCommandline(spelling, getCurrentDic().getWordList());
-            getCurrentDic().removeFromCommandline(spelling, getCurrentDic().getHistory());
             getCurrentDic().removeFromCommandline(spelling, getCurrentDic().getBookMark());
 
             WordDAO.getInstance().delete(target);

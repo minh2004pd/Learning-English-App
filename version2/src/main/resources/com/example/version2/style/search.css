@@ -5,6 +5,8 @@
     -purple-color: #5865F2;
     -hover-purple-color: #4752C4;
 
+    -fx-font-family: cursive, Arial;
+
     -text-color: #555c5d;
     -hover-text-color: #2e3338;
 
@@ -18,28 +20,31 @@
 }
 
 .second-color {
-    -fx-background-color: #f2f3f5;
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
 }
 
 .third-color {
-    -fx-background-color: #e3e5e8;
+
 }
 
 /* ========================= TextField ========================= */
 
 #searchField {
-    -fx-background-color: #282828;
-    -fx-text-fill: white;
+    -fx-border-color: #1E1E1E;
+    -fx-border-width: 3px;
+    -fx-box-sizing: border-box;
+    -fx-border-radius: 5px;
+    -fx-padding: 0.5em;
 }
 .text-field {
-    -fx-background-image: url('../icon/normal/search-bar.png');
+    -fx-background-image: url('../icon/hover/search1.png');
     -fx-background-size: 22;
     -fx-background-color: #e3e5e8;
     -fx-background-repeat: no-repeat;
-    -fx-background-position: right center;
-    -fx-background-radius: 0 3 3 0;
+    -fx-background-position: right 5px center;
+    -fx-background-radius: 7 7 7 7;
 
-    -fx-border-radius: 0 3 3 0;
+    -fx-border-radius: 6 6 6 6;
     -fx-border-width: 1;
     -fx-font-size: 15;
 }
@@ -106,7 +111,7 @@
 
 .button-eng-viet {
     -fx-graphic: url('../icon/normal/eng-viet.png');
-    -fx-background-color: #e3e5e8;
+    -fx-background-color: transparent;
     -fx-background-radius: 3 0 0 3;
     -fx-border-width: 0;
     -fx-padding: 2;
@@ -173,4 +178,105 @@
 
 .button-remove:hover {
     -fx-graphic: url('../icon/hover/remove.png');
+}
+
+.header-part {
+    -fx-background-color: #F5F5F5;
+    -fx-opacity: 0.8;
+}
+
+.word-list {
+    -fx-background-color: #F5F5F5;
+    -fx-opacity: 0.8;
+}
+
+.word-list .list-cell {
+    -fx-font-family: cursive, Arial;
+    -fx-font-size: 20px;
+}
+
+.word-list .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-opacity: 0.8;
+}
+
+.word-list .scroll-bar:vertical .thumb {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
+}
+
+.word-list .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 1), rgba(33, 150, 243, 0.6));
+}
+
+.word-list .scroll-bar:vertical .increment-button,
+.standings-list .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+}
+
+.word-list .scroll-bar:vertical .increment-button .increment-arrow,
+.word-list .scroll-bar:vertical .decrement-button .decrement-arrow {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
+}
+
+.word-list .scroll-bar:vertical .increment-button:hover .increment-arrow,
+.word-list .scroll-bar:vertical .decrement-button:hover .decrement-arrow {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 1), rgba(33, 150, 243, 0.6));
+}
+
+.word-list .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+.word-list .scroll-bar:vertical .track-background {
+    -fx-background-color: transparent;
+}
+
+.word-list .scroll-bar:vertical .track-background:hover {
+    -fx-background-color: transparent;
+}
+
+.word-list .scroll-bar:vertical .track-background:pressed {
+    -fx-background-color: transparent;
+}
+
+.list-view-item {
+    -fx-background-color: #EFEFEF;
+    -fx-padding: 5px;
+    -fx-border-radius: 20px;
+    -fx-text-fill: #000000;
+}
+
+.header-part {
+    -fx-border-color: #1E1E1E;
+    -fx-border-width: 3px;
+    -fx-box-sizing: border-box;
+}
+
+.search-part {
+    -fx-border-style: solid;
+    -fx-border-color: #1E1E1E transparent #1E1E1E #1E1E1E;
+    -fx-border-width: 3px 0 3px 3px;
+    -fx-box-sizing: border-box;
+    -fx-padding: 0;
+}
+
+.explain-part {
+    -fx-border-color: #1E1E1E;
+    -fx-border-width: 3px;
+    -fx-box-sizing: border-box;
+}
+
+.list-cell:odd {
+    -fx-background-color: #F5F5F5; /* Màu nền cho mục lẻ */
+}
+
+.list-cell:even {
+    -fx-background-color: white; /* Màu nền cho mục chẵn */
+}
+
+#wordListView1 .list-cell:selected {
+    -fx-background-image: url('../icon/hover/bookmark.png'); /* Specify the path to your icon image */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: left center;
+    -fx-padding: 0 0 0 30; /* Adjust the padding to align the icon properly */
 }
