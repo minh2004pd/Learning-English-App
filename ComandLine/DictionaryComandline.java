@@ -1,4 +1,4 @@
-package ComandLine;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class DictionaryComandline {
     private DictionaryManagement dictionaryManagement;
     private Scanner scanner;
+    private Hangman hangman;
 
     public DictionaryComandline() {
         dictionaryManagement = new DictionaryManagement();
@@ -28,30 +29,6 @@ public class DictionaryComandline {
             }
         }
         return true;
-    }
-
-    private void clearScreen() throws IOException {
-        if (System.getProperty("os.name").contains("Windows")) {
-            try {
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
-        } else {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-        }
-    }
-
-    private void waitForKeyPress() {
-        System.out.println("Press Enter to continue...");
-        try {
-            System.in.read();
-            scanner.nextLine();
-        } catch (IOException e) {
-            System.out.println("Failed to read input: " + e.getMessage());
-            e.printStackTrace();
-        }
     }
 
     
@@ -78,7 +55,7 @@ public class DictionaryComandline {
             Word word = new Word(word_target, word_explain);
             dictionaryManagement.insertFromCommandline(word);
         }
-        scanner.close();
+        // scanner.close();
     }
 
     /**
@@ -93,7 +70,7 @@ public class DictionaryComandline {
         } else {
             System.out.println("Xoa thanh cong!");
         }
-        scanner.close();
+        // scanner.close();
     }
 
     /**
@@ -105,7 +82,7 @@ public class DictionaryComandline {
         String input = scanner.nextLine().toLowerCase();
         if (dictionaryManagement.dictionaryLookup(input).isEmpty()) {
             System.out.println("don't find word!");
-            scanner.close();
+            // scanner.close();
             return;
         }
         System.out.println("1. change target");
@@ -120,7 +97,7 @@ public class DictionaryComandline {
         } else {
             System.out.println("change success!");
         }
-        scanner.close();
+        // scanner.close();
     }
 
     /**
@@ -162,7 +139,7 @@ public class DictionaryComandline {
                 System.out.println(w.getWord_target() + "\t" + w.getWord_explain());
             }
         }
-        scanner.close();
+        // scanner.close();
     }
 
     /**
@@ -181,7 +158,7 @@ public class DictionaryComandline {
                 System.out.println(w.getWord_target() + "\t" + w.getWord_explain());
             }
         }
-        scanner.close();scanner.close();
+        // // scanner.close();scanner.close();
     }
 
     /**
@@ -194,6 +171,43 @@ public class DictionaryComandline {
         for (int i = 0; i < wordList.size(); i++) {
             Word word = wordList.get(i);
             System.out.printf("%-4d | %-20s | %s%n", (i + 1), word.getWord_target(), word.getWord_explain());
+        }
+    }
+
+    // Cập nhật sau khi đoán
+    private String update(String guessWord, String word, char guess) {
+        StringBuilder updatedGuessWord = new StringBuilder(guessWord);
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) == guess) {
+                updatedGuessWord.setCharAt(i, guess);
+            }
+        }
+        return updatedGuessWord.toString();
+    }
+
+    public void gameHangMan() {
+        hangman = new Hangman();
+        System.out.println("Game Hangman ^_^");
+        System.out.println("Secret word has "+hangman.getWord().length()+" chars");
+        do { 
+            System.out.println(hangman.getGuessWord());
+            System.out.println("Number of wrong guesses: " + hangman.getCount());
+            System.out.print("Your Guess: "); 
+            String guess = scanner.nextLine();
+            if (hangman.getWord().indexOf(guess) >= 0) {
+                hangman.setGuessWord(update(hangman.getGuessWord(), hangman.getWord(), guess.charAt(0)));
+            } else {
+                hangman.increaseCount();
+            }
+        } while (hangman.getCount() <= 6 && !hangman.getWord().equals(hangman.getGuessWord()));
+
+        if (hangman.getCount() > 6) {
+            System.out.println("You Lose!");
+            System.out.println("The correct word is " + hangman.getWord()+
+                                ": "+ hangman.getVnamese());
+        } else {
+            System.out.println("Congratulations, You win!");
+            System.out.println(hangman.getWord()+": "+ hangman.getVnamese());
         }
     }
 
@@ -210,91 +224,28 @@ public class DictionaryComandline {
                 System.out.println("Goodbye!");
             } else if (action == 1) {
                 insertFromCommandline();
-                waitForKeyPress();
-                try {
-                    clearScreen();
-                } catch (IOException e) {
-                    System.out.println("Failed to clear screen: " + e.getMessage());
-                    e.printStackTrace();
-                }
             } else if (action == 2) {
                 removeFromCommandline();
-                waitForKeyPress();
-                try {
-                    clearScreen();
-                } catch (IOException e) {
-                    System.out.println("Failed to clear screen: " + e.getMessage());
-                    e.printStackTrace();
-                }
             } else if (action == 3) {
                 updateFromCommandline();
-                waitForKeyPress();
-                try {
-                    clearScreen();
-                } catch (IOException e) {
-                    System.out.println("Failed to clear screen: " + e.getMessage());
-                    e.printStackTrace();
-                }
             } else if (action == 4) {
                 showAllWords();
-                waitForKeyPress();
-                try {
-                    clearScreen();
-                } catch (IOException e) {
-                    System.out.println("Failed to clear screen: " + e.getMessage());
-                    e.printStackTrace();
-                }
             } else if (action == 5) {
                 dictionaryLookup();
-                waitForKeyPress();
-                try {
-                    clearScreen();
-                } catch (IOException e) {
-                    System.out.println("Failed to clear screen: " + e.getMessage());
-                    e.printStackTrace();
-                }
             } else if (action == 6) {
                 dictionarySearcher();
-                waitForKeyPress();
-                try {
-                    clearScreen();
-                } catch (IOException e) {
-                    System.out.println("Failed to clear screen: " + e.getMessage());
-                    e.printStackTrace();
-                }
             } else if (action == 7) {
-                Hangman.run();
+                gameHangMan();
             } else if (action == 8) {
                 insertFromFile();
-                waitForKeyPress();
-                try {
-                    clearScreen();
-                } catch (IOException e) {
-                    System.out.println("Failed to clear screen: " + e.getMessage());
-                    e.printStackTrace();
-                }
             } else if (action == 9) {
                 dictionaryExportToFile();
-                waitForKeyPress();
-                try {
-                    clearScreen();
-                } catch (IOException e) {
-                    System.out.println("Failed to clear screen: " + e.getMessage());
-                    e.printStackTrace();
-                }
             } else {
                 System.out.println("Invalid action!");
-                waitForKeyPress();
-                try {
-                    clearScreen();
-                } catch (IOException e) {
-                    System.out.println("Failed to clear screen: " + e.getMessage());
-                    e.printStackTrace();
-                }
             }
         }
 
-        scanner.close();
+        // scanner.close();
     }
 
     private void showMenu() {
