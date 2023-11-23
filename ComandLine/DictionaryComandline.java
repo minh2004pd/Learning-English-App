@@ -187,6 +187,10 @@ public class DictionaryComandline {
 
     public void gameHangMan() {
         hangman = new Hangman();
+        if (!hangman.check) {
+            System.out.println("Game failed");
+            return;
+        } 
         System.out.println("Game Hangman ^_^");
         System.out.println("Secret word has "+hangman.getWord().length()+" chars");
         do { 

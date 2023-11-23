@@ -15,11 +15,13 @@ public class Hangman {
     private String word;
     private String vnamese;
     private String guessWord;
+    public boolean check = false;
 
     public Hangman() {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
+                check = true;
                 // Lấy chỉ phần tử đầu tiên từ mỗi dòng và thêm nó vào danh sách
                 String firstWord = line.split("\t")[0]; // Lấy phần tử đầu tiên
                 String nghia = line.split("\t")[1];
@@ -30,12 +32,14 @@ public class Hangman {
             e.printStackTrace();
         }
 
-        Random random = new Random();
-        int NumberOfWord=  random.nextInt(WordList.size());
-        // Chọn từ
-        word = WordList.get(NumberOfWord);
-        vnamese = mean.get(NumberOfWord);
-        guessWord = "-".repeat(word.length());
+        if (check) {
+            Random random = new Random();
+            int NumberOfWord=  random.nextInt(WordList.size());
+            // Chọn từ
+            word = WordList.get(NumberOfWord);
+            vnamese = mean.get(NumberOfWord);
+            guessWord = "-".repeat(word.length());
+        }
     }
 
     public int getCount() {

@@ -1,6 +1,3 @@
-abc	acd
-abc	acd
-fdg	dfg
-fdg	dfg
-sdfsd	sdf
-sdfsd	sdf
+a	a
+c	c
+v	v
