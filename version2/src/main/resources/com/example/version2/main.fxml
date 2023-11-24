@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="857.0" styleClass="third-color" stylesheets="@style/main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.version2.MainController">
+<AnchorPane prefHeight="600.0" prefWidth="857.0" styleClass="third-color" stylesheets="@style/main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.version2.MainController">
     <children>
       <AnchorPane prefHeight="600.0" prefWidth="77.0" style="-fx-background-color: #282828;">
          <children>
@@ -69,19 +69,18 @@
                       </Button>
                   </children>
               </VBox>
-              <VBox alignment="CENTER" layoutY="575.0" prefHeight="22.0" prefWidth="57.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0">
-                  <children>
-                      <Button fx:id="settingButton" contentDisplay="TOP" mnemonicParsing="false" prefHeight="36.0" prefWidth="57.0" textFill="#8e9297">
-                          <font>
-                              <Font size="7.0" />
-                          </font>
-                          <styleClass>
-                              <String fx:value="text-navi-bar" />
-                              <String fx:value="button-setting" />
-                          </styleClass>
-                      </Button>
-                  </children>
-              </VBox>
+
+              <VBox alignment="CENTER" layoutY="575.0" prefHeight="22.0" prefWidth="57.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" />
+                <Button fx:id="settingButton" contentDisplay="TOP" layoutY="544.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="57.0" text="Quay lại" textFill="#8e9297" onAction ="#backclick">
+                    <font>
+                        <Font size="7.0" />
+                    </font>
+                    <styleClass>
+                        <String fx:value="text-navi-bar" />
+                        <String fx:value="button-setting" />
+                    </styleClass>
+                </Button>
+
          </children>
       </AnchorPane>
         <AnchorPane fx:id="mainContent" layoutX="57.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #282828;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

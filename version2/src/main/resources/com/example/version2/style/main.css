@@ -117,15 +117,15 @@
 }
 
 .button-setting {
-    -fx-graphic: url('../icon/normal/setting.png');
+    -fx-graphic: url('../icon/normal/back.png');
 }
 
 .button-setting:hover {
-    -fx-graphic: url('../icon/hover/setting.png');
+    -fx-graphic: url('../icon/hover/back.png');
 }
 
 .button-setting.active {
-    -fx-graphic: url('../icon/hover/setting.png');
+    -fx-graphic: url('../icon/hover/back.png');
 }
 
 .button-exam {
