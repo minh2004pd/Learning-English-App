@@ -3,6 +3,7 @@ package model;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.Serializable;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -15,7 +16,15 @@ public class Exam {
     private List<Questions> questionsList = new ArrayList<>();
     private List<Questions> questionsListTemp = new ArrayList<>();
 
-    private File file = new File("D:\\OneDrive\\Máy tính\\Learning-English-App\\version2\\src\\main\\resources\\com\\example\\version2\\data\\questions.txt");
+    private File file;
+
+    {
+        try {
+            file = new File(getClass().getResource("/com/example/version2/data/questions.txt").toURI());
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     private BufferedReader br;
     private int score = 0;
