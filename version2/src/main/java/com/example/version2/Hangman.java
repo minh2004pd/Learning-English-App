@@ -41,15 +41,14 @@ public class Hangman extends Dictionary implements Initializable {
     @FXML
     private Label soluot;
     private String mean;
-    private static final String JDBC_URL = "jdbc:mySQL://localhost:3306/test";
+    private static final String JDBC_URL = "jdbc:mySQL://localhost:3306/classicmodels";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
     private String getRandomWordFromDatabase() {
         String randomWord = null;
         try (Connection connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
              Statement statement = connection.createStatement()) {
-
-            String query = "SELECT word,SUBSTRING_INDEX(SUBSTRING_INDEX(detail, '>- ', -1), '<', 1) as meann FROM tbl_edict where idx>=65 and word not like '% %' and word not like '%-%' ORDER BY RAND() LIMIT 1";
+            String query = "SELECT word,SUBSTRING_INDEX(SUBSTRING_INDEX(detail, '>- ', -1), '<', 1) as meann FROM tbl_edict where idx>=65 ORDER BY RAND() LIMIT 1";
             //String query1 =" SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(detail, '>- ', -1), '<', 1)  FROM tbl_edict;"
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
@@ -112,29 +111,29 @@ public class Hangman extends Dictionary implements Initializable {
             remainingAttempts--;
         }
         if(remainingAttempts == 5){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman2.png")) ;
+            image.setImage( new Image("D:\\OneDrive\\Máy tính\\Learning-English-App\\version2\\src\\main\\resources\\com\\example\\version2\\icon\\normal\\hangman2.png")) ;
             soluot.setText("RemainingAttempts: " + remainingAttempts);
         }
         if(remainingAttempts == 4){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman3.png")) ;
+            image.setImage( new Image("D:\\OneDrive\\Máy tính\\Learning-English-App\\version2\\src\\main\\resources\\com\\example\\version2\\icon\\normal\\hangman3.png")) ;
             soluot.setText("RemainingAttempts: " + remainingAttempts);
         }
         if(remainingAttempts == 3){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman4.png")) ;
+            image.setImage( new Image("D:\\OneDrive\\Máy tính\\Learning-English-App\\version2\\src\\main\\resources\\com\\example\\version2\\icon\\normal\\hangman4.png")) ;
             soluot.setText("RemainingAttempts: " + remainingAttempts);
             goiy.setText("Gợi ý nè! Nghĩa của từ khoá: " + mean);
 
         }
         if(remainingAttempts == 2){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman5.png")) ;
+            image.setImage( new Image("D:\\OneDrive\\Máy tính\\Learning-English-App\\version2\\src\\main\\resources\\com\\example\\version2\\icon\\normal\\hangman5.png")) ;
             soluot.setText("RemainingAttempts: " + remainingAttempts);
         }
         if(remainingAttempts == 1){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman6.png")) ;
+            image.setImage( new Image("D:\\OneDrive\\Máy tính\\Learning-English-App\\version2\\src\\main\\resources\\com\\example\\version2\\icon\\normal\\hangman6.png")) ;
             soluot.setText("RemainingAttempts: " + remainingAttempts);
         }
         if(remainingAttempts == 0){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman7.png")) ;
+            image.setImage( new Image("D:\\OneDrive\\Máy tính\\Learning-English-App\\version2\\src\\main\\resources\\com\\example\\version2\\icon\\normal\\hangman7.png")) ;
             soluot.setText("RemainingAttempts: " + remainingAttempts);
         }
 
@@ -181,7 +180,7 @@ public class Hangman extends Dictionary implements Initializable {
         remainingAttempts = 6;
         tuhientai.setText(currentWordState.toString());
         sokitu.setText("The secret word has "+currentWordState.length() +" characters.");
-        image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman1.png")) ;
+        image.setImage( new Image("D:\\OneDrive\\Máy tính\\Learning-English-App\\version2\\src\\main\\resources\\com\\example\\version2\\icon\\normal\\hangman1.png")) ;
         soluot.setText("RemainingAttempts: " + remainingAttempts);
         goiy.setText(" ");
     }

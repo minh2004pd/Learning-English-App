@@ -15,7 +15,7 @@ public class Exam {
     private List<Questions> questionsList = new ArrayList<>();
     private List<Questions> questionsListTemp = new ArrayList<>();
 
-    private File file = new File("/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/data/questions.txt");
+    private File file = new File("D:\\OneDrive\\Máy tính\\Learning-English-App\\version2\\src\\main\\resources\\com\\example\\version2\\data\\questions.txt");
 
     private BufferedReader br;
     private int score = 0;

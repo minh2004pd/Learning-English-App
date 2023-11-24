@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class Standings {
     private List<Exam> standingsList = new ArrayList<>();
-    private File file = new File("D:\\version2\\src\\main\\resources\\com\\example\\version2\\data\\standings.txt");
+    private File file = new File("");
 
     public Standings() {
         insertFromFile();
