@@ -9,7 +9,8 @@ import java.util.ArrayList;
 public class JDBCUtil {
     public static Connection getConnection() {
         Connection c = null;
-        String url = "jdbc:mySQL://localhost:3306/test";
+
+        String url = "jdbc:mySQL://localhost:3306/classicmodels";
         String username = "root";
         String password = "";
         try {

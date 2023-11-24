@@ -81,6 +81,7 @@ public class MainController implements Initializable {
         setMainContent(bookmarkPane);
         bookMarkController.initBookmarkListViewItem();
     }
+
     public void backclick(ActionEvent event) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("giaodien.fxml"));
         Parent root = loader.load();
