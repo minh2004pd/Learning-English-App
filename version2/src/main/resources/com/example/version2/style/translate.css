@@ -1,0 +1,140 @@
+.root {
+    -button-color: #747f8d;
+    -hover-button-color: #2e3338;
+
+    -purple-color: #5865F2;
+    -hover-purple-color: #4752C4;
+
+    -text-color: #555c5d;
+    -hover-text-color: #2e3338;
+
+    -gray-color: #e6e6e6;
+    -title-color: #060607;
+    -hover-background-color: #D4D7DC;
+}
+
+/* ========================= Button ========================= */
+
+.button-lang {
+    -fx-background-color: #FFA500; /* Set the background color to orange */
+    -fx-text-fill: white; /* Set the text color */
+    -fx-opacity: 0.8; /* Set the opacity */
+    -fx-min-width: 90;
+    -fx-padding: 5;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+}
+
+.button-lang.active {
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #FFA500, #FF8C00); /* Set the gradient background color on hover */
+    -fx-opacity: 1.0; /* Set the opacity on hover */
+    -fx-text-fill: -hover-text-color;
+}
+
+.button-speak {
+    -fx-background-image: url('../icon/normal/speak.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 25;
+    -fx-background-color: -gray-color;
+    -fx-pref-width: 35;
+    -fx-pref-height: 35;
+}
+
+.button-speak:hover {
+    -fx-background-image: url('../icon/hover/speak.png');
+    -fx-background-size: 25;
+}
+
+.button-double-arrow {
+    -fx-background-image: url('../icon/normal/double-arrow.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 25;
+    -fx-pref-width: 60;
+    -fx-pref-height: 40;
+}
+
+.button-double-arrow:hover {
+    -fx-background-color: none;
+    -fx-cursor: default;
+}
+
+.button-translate-submit {
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #FFA500, #FF8C00); /* Set the gradient background color */
+    -fx-opacity: 0.8; /* Set the opacity */
+    -fx-background-radius: 6px;
+    -fx-border-color: #1E1E1E; /* Border color */
+    -fx-border-width: 3px; /* Border width */
+    -fx-border-radius: 5px; /* Border radius */
+    -fx-padding: 5;
+    -fx-pref-width: 120;
+    -fx-pref-height: 30;
+
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+#text1 {
+     -fx-background-color: transparent;
+     -fx-background-radius: 20
+}
+
+#text2 {
+     -fx-background-color: transparent;
+     -fx-background-radius: 20
+}
+
+.button-translate-submit:hover {
+    -fx-text-fill: white;
+    -fx-background-color: -hover-purple-color;
+}
+
+/* ========================= TextField ========================= */
+
+.text-field {
+    -fx-background-color: white;
+    -fx-font-size: 15;
+}
+
+/* ========================= TextArea ========================= */
+
+.text-area {
+    -fx-background-insets: 0;
+    -fx-background-color: #e3e5e8;
+}
+
+.text-area .content {
+    -fx-background-color: #e3e5e8;
+    -fx-font-size: 20;
+}
+
+#area1 {
+     -fx-background-radius: 6px;
+     -fx-border-color: #1E1E1E; /* Border color */
+     -fx-border-width: 3px; /* Border width */
+     -fx-border-radius: 5px; /* Border radius */
+     -fx-background-color: #e3e5e8;
+     -fx-font-size: 20px;
+     -fx-font-family: cursive, Arial;
+}
+
+#area2 {
+     -fx-background-radius: 6px;
+     -fx-border-color: #1E1E1E; /* Border color */
+     -fx-border-width: 3px; /* Border width */
+     -fx-border-radius: 5px; /* Border radius */
+     -fx-background-color: #e3e5e8;
+     -fx-font-size: 15px;
+     -fx-font-family: cursive, Arial;
+}
+
+.text-area:focused {
+    -fx-background-color:white;
+    -fx-font-size: 15;
+}
+
+.translate-pane {
+    -fx-background-color: linear-gradient(to bottom, rgba(33, 150, 243, 0.8), rgba(33, 150, 243, 0.4));
+}

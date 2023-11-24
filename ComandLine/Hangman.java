@@ -1,4 +1,4 @@
-package ComandLine;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,20 +8,23 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Hangman {
-    public static void run() {
-        
-        List<String> WordList = new ArrayList<>();
-         List<String> mean = new ArrayList<>();
+    private List<String> WordList = new ArrayList<>();
+    private List<String> mean = new ArrayList<>();
+    public final String filePath = "dictionaries.txt";
+    private int count = 0;
+    private String word;
+    private String vnamese;
+    private String guessWord;
+    public boolean check = false;
 
-        // Đường dẫn đến tệp văn bản chứa danh sách từ
-       String filePath = "dictionaries.txt"; // Đặt đường dẫn đúng của tệp của bạn
-
+    public Hangman() {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
+                check = true;
                 // Lấy chỉ phần tử đầu tiên từ mỗi dòng và thêm nó vào danh sách
-                String firstWord = line.split(" ")[0]; // Lấy phần tử đầu tiên
-                String nghia = line.split(" ")[1];
+                String firstWord = line.split("\t")[0]; // Lấy phần tử đầu tiên
+                String nghia = line.split("\t")[1];
                 WordList.add(firstWord); // Thêm vào danh sách
                 mean.add(nghia);
             }
@@ -29,66 +32,47 @@ public class Hangman {
             e.printStackTrace();
         }
 
-    // Số từ
-      
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-int NumberOfWord=  random.nextInt(WordList.size());
-        // Chọn từ
-        String word = WordList.get(NumberOfWord);
-        String vnamese = mean.get(NumberOfWord);
-        String guessWord = "-".repeat(word.length());
-        int count = 0;
-        System.out.println("Game Hangman ^_^");
-        System.out.println("Secret word has "+word.length()+" chars");
-        do { 
-            renderGame(count, guessWord);
-            char guess = answers(scanner);
-            if (checkWord(word, guess)) {
-                guessWord = update(guessWord, word, guess);
-            } else {
-                count++ ;
-            }
-        } while (count <= 6 && !word.equals(guessWord));
-
-        renderGame(count, guessWord);
-
-        if (count > 6) {
-            System.out.println("You Lose!");
-            System.out.println("The correct word is " + word+": "+ vnamese);
-        } else {
-            System.out.println("Congratulations, You win!");
-            System.out.println(word+": "+ vnamese);
+        if (check) {
+            Random random = new Random();
+            int NumberOfWord=  random.nextInt(WordList.size());
+            // Chọn từ
+            word = WordList.get(NumberOfWord);
+            vnamese = mean.get(NumberOfWord);
+            guessWord = "-".repeat(word.length());
         }
-
-        scanner.close();
     }
 
-    // Xuất ra màn hình (đếm số từ)
-    private static void renderGame(int count, String guessWord) {
-        System.out.println(guessWord);
-        System.out.println("Number of wrong guesses: " + count);
+    public int getCount() {
+        return count;
     }
 
-    // Hàm đoán từ
-    private static char answers(Scanner scanner) {
-        System.out.print("Your Guess: "); 
-        return scanner.next().charAt(0);
+    public void increaseCount() {
+        this.count++;
     }
 
-    // Kiểm tra từ
-    private static boolean checkWord(String word, char guess) {
-        return word.indexOf(guess) >= 0;
+    public String getWord() {
+        return word;
     }
 
-    // Cập nhật sau khi đoán
-    private static String update(String guessWord, String word, char guess) {
-        StringBuilder updatedGuessWord = new StringBuilder(guessWord);
-        for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == guess) {
-                updatedGuessWord.setCharAt(i, guess);
-            }
-        }
-        return updatedGuessWord.toString();
+    public void setWord(String word) {
+        this.word = word;
     }
+
+    public String getVnamese() {
+        return vnamese;
+    }
+
+    public void setVnamese(String vnamese) {
+        this.vnamese = vnamese;
+    }
+
+    public String getGuessWord() {
+        return guessWord;
+    }
+
+    public void setGuessWord(String guessWord) {
+        this.guessWord = guessWord;
+    }
+
+    
 }
