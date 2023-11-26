@@ -47,7 +47,7 @@ public class SearchController extends Controller implements Initializable {
         searchWordTemp.clear();
         searchList.clear();
         String word = searchField.getText();
-        searchWordTemp = getCurrentDic().dictionarySearcher(word.toLowerCase(), getCurrentDic().getWordList());
+        searchWordTemp = getCurrentDic().dictionarySearcher(word, getCurrentDic().getWordList());
         setSearchListViewItem();
     }
 

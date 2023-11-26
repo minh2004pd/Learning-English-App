@@ -125,6 +125,11 @@
     -fx-padding: 2;
 }
 
+.button-eng-viet:hover {
+    -fx-background-color: none;
+    -fx-cursor: pointer;
+}
+
 .button-speak {
     -fx-background-image: url('../icon/normal/speak.png');
     -fx-background-size: 15;

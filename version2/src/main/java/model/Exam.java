@@ -16,15 +16,7 @@ public class Exam {
     private List<Questions> questionsList = new ArrayList<>();
     private List<Questions> questionsListTemp = new ArrayList<>();
 
-    private File file;
-
-    {
-        try {
-            file = new File(getClass().getResource("/com/example/version2/data/questions.txt").toURI());
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
-    }
+    private File file = new File("version2\\src\\main\\resources\\com\\example\\version2\\data\\questions.txt");
 
     private BufferedReader br;
     private int score = 0;
