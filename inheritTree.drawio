@@ -1,0 +1,192 @@
+<mxfile host="app.diagrams.net" modified="2023-11-26T16:29:25.069Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="WvRFNXGP23h05LFUUfiE" version="22.1.4" type="google">
+  <diagram name="Page-1" id="dt8drGV22ZznK0L7F3X6">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yg6li7all_toR3SiyI60-16" value="Dictionary" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="-1072" width="330" height="200" as="geometry">
+            <mxRectangle x="40" y="-1072" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-17" value="# wordList :&amp;nbsp;ArrayList&amp;lt;Word&amp;gt;&lt;br&gt;# bookMark :&amp;nbsp;ArrayList&amp;lt;Word&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-16">
+          <mxGeometry y="26" width="330" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-18" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="yg6li7all_toR3SiyI60-16">
+          <mxGeometry y="60" width="330" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-19" value="+&amp;nbsp;Dictionary()&lt;br&gt;+ addWord(word: Word, list: ArrayList&amp;lt;Word&amp;gt;): void&lt;br&gt;+ removeWord(word: Word, list: ArrayList&amp;lt;Word&amp;gt;): void&lt;br&gt;+ updateWordExplain(word: Word, newExplain: String, list: ArrayList&amp;lt;Word&amp;gt;): void&lt;br&gt;+ updateWordTarget(word: Word, newTarget: String): void&lt;br&gt;+ getWordList(): ArrayList&amp;lt;Word&amp;gt;&lt;br&gt;+ getBookMark(): ArrayList&amp;lt;Word&amp;gt;&lt;br&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-16">
+          <mxGeometry y="68" width="330" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="yg6li7all_toR3SiyI60-16" source="yg6li7all_toR3SiyI60-19" target="yg6li7all_toR3SiyI60-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-24" value="Word" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="-1072" width="260" height="286" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-25" value="- id: int&lt;br&gt;- bookMark: boolean&lt;br&gt;- word_target: String&lt;br&gt;- word_explain: String " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-24">
+          <mxGeometry y="26" width="260" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-26" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="yg6li7all_toR3SiyI60-24">
+          <mxGeometry y="90" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-27" value="+ Word(id: int, word_target: String, word_explain: String)&lt;br&gt;+ Word(word_target: String, word_explain: String)&lt;br&gt;+ getWord_target(): String&lt;br&gt;+ setWord_target(word_target: String): void&lt;br&gt;+ getWord_explain(): String&lt;br&gt;+ setWord_explain(word_explain: String): void&lt;br&gt;+ getId(): int &lt;br&gt;+ setId(id: int): void &lt;br&gt;+ isBookMark(): boolean&lt;br&gt;+ setBookMark(bookMark: boolean): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-24">
+          <mxGeometry y="98" width="260" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-28" value="Question" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="-1490" width="260" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-29" value="- question: String&lt;br&gt;- options: String[]&lt;br&gt;- answerIndex: int&lt;br&gt;- mark: int   " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-28">
+          <mxGeometry y="26" width="260" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-30" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="yg6li7all_toR3SiyI60-28">
+          <mxGeometry y="90" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-31" value="+ Questions(question: String, options: String[], answerIndex: int)&lt;br&gt;+ getQuestion(): String&lt;br&gt;+ setQuestion(newQuestion: String): void&lt;br&gt;+ getOptions(): String[]&lt;br&gt;+ setOptions(newOptions: String[]): void&lt;br&gt;+ getAnswerIndex(): int&lt;br&gt;+ setAnswerIndex(newIndex: int): void&lt;br&gt;+ getMark(): int&lt;br&gt;+ setMark(mark: int): void " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-28">
+          <mxGeometry y="98" width="260" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-32" value="Standings" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="-1400" width="190" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-33" value="- standingsList: List&amp;lt;Exam&amp;gt;&lt;br&gt;- file: File" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-32">
+          <mxGeometry y="26" width="190" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-34" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="yg6li7all_toR3SiyI60-32">
+          <mxGeometry y="60" width="190" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-35" value="+ Standings()&lt;br&gt;+ addExam(exam: Exam): void&lt;br&gt;+ exportToFile(): boolean&lt;br&gt;+ insertFromFile(): boolean&lt;br&gt;+ getStandingsList(): List&amp;lt;Exam&amp;gt; " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-32">
+          <mxGeometry y="68" width="190" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-36" value="Exam" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="-1510" width="230" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-37" value="- userName: String&lt;br&gt;# rand: Random&lt;br&gt;- questionsList: List&amp;lt;Questions&amp;gt;&lt;br&gt;- questionsListTemp: List&amp;lt;Questions&lt;br&gt;- file: File&lt;br&gt;- br: BufferedReader&lt;br&gt;- score: int      " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-36">
+          <mxGeometry y="26" width="230" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-38" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="yg6li7all_toR3SiyI60-36">
+          <mxGeometry y="130" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-39" value="+ Exam()&lt;br&gt;+ Exam(userName: String, score: int)&lt;br&gt;+ addQuestions(questions: Questions): void&lt;br&gt;+ getQuestionsList(): List&amp;lt;Questions&amp;gt;&lt;br&gt;+ getScore(): int&lt;br&gt;+ setScore(score: int): void&lt;br&gt;+ increaseScore(points: int): void&lt;br&gt;+ setExam(): void&lt;br&gt;+ insertFromFile(): boolean&lt;br&gt;+ getAllQuestions(): void&lt;br&gt;+ getSize(): int&lt;br&gt;+ getUserName(): String&lt;br&gt;+ setUserName(userName: String): void&lt;br&gt;+ compareTo(other: Exam): int&lt;br&gt;+ getInfo(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-36">
+          <mxGeometry y="138" width="230" height="272" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-40" value="DictionaryManagement" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="825" y="-1032" width="370" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="mXEIgYk3K_IvBmabXJU1-8" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-40">
+          <mxGeometry y="26" width="370" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-41" value="- dictionary: DictionaryAdvance&lt;br&gt;- wordFile: File&lt;br&gt;- bookMarkFile: File   " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-40">
+          <mxGeometry y="80" width="370" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-42" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="yg6li7all_toR3SiyI60-40">
+          <mxGeometry y="134" width="370" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-43" value="+ DictionaryManagement()&lt;br&gt;+ dictionaryLookup(target: String, list: ArrayList&amp;lt;Word&amp;gt;): Word&lt;br&gt;+ binarySearchFirstEqual(res: ArrayList&amp;lt;Word&amp;gt;, target: String): int&lt;br&gt;+ dictionarySearcher(target: String, list: ArrayList&amp;lt;Word&amp;gt;): ArrayList&amp;lt;Word&amp;gt;&lt;br&gt;+ insertFromCommandline(word: Word, list: ArrayList&amp;lt;Word&amp;gt;): void&lt;br&gt;+ removeFromCommandline(input: String, list: ArrayList&amp;lt;Word&amp;gt;): boolean&lt;br&gt;+ updateFromCommandline(res: Word, newString: String, list: ArrayList&amp;lt;Word&amp;gt;): void&lt;br&gt;+ updateToDB(word: Word): boolean&lt;br&gt;+ insertFromDB(): boolean&lt;br&gt;+ insertFromFile(file: File, list: ArrayList&amp;lt;Word&amp;gt;): boolean&lt;br&gt;+ dictionaryExportToFile(file: File, list: ArrayList&amp;lt;Word&amp;gt;): boolean&lt;br&gt;+ getBookMarkFile(): File&lt;br&gt;+ getWordFile(): File&lt;br&gt;+ setDictionary(dictionary: DictionaryAdvance): void&lt;br&gt;+ getDictionary(): DictionaryAdvance&lt;br&gt;+ getWordList(): ArrayList&amp;lt;Word&amp;gt;&lt;br&gt;+ getBookMark(): ArrayList&amp;lt;Word&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-40">
+          <mxGeometry y="142" width="370" height="298" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-44" value="TextToSpeech" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="-1073" width="190" height="226" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-45" value="- API_KEY: String&lt;br&gt;- AUDIO_PATH: String&lt;br&gt;- voiceNameUS: String&lt;br&gt;- voiceNameUK: String&lt;br&gt;- language: String&lt;br&gt;- Name: String&lt;br&gt;- speed: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-44">
+          <mxGeometry y="26" width="190" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-46" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="yg6li7all_toR3SiyI60-44">
+          <mxGeometry y="140" width="190" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-47" value="+ speakWord(word: String): void&lt;br&gt;- playAudio(audioData: byte[]): void&lt;br&gt;+ main(args: String[]): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-44">
+          <mxGeometry y="148" width="190" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-52" value="Translate" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1175" y="-1480" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-54" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="yg6li7all_toR3SiyI60-52">
+          <mxGeometry y="26" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-55" value="+ detectLang(text: String): String&lt;br&gt;+ googleTranslate(langFrom: String, langTo: String, text: String): TranslationResult&lt;br&gt;+ main(args: String[]): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-52">
+          <mxGeometry y="76" width="200" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-56" value="TranslateResult" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1490" y="-1460" width="280" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-57" value="- translatedText: String&lt;br&gt;- detectedLanguage: String " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-56">
+          <mxGeometry y="26" width="280" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-58" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="yg6li7all_toR3SiyI60-56">
+          <mxGeometry y="60" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-59" value="+ TranslationResult()&lt;br&gt;+ TranslationResult(translatedText: String, detectedLanguage: String)&lt;br&gt;+ TranslationResult(translatedText: String)&lt;br&gt;+ setTranslatedText(translatedText: String): void&lt;br&gt;+ getTranslatedText(): String&lt;br&gt;+ setDetectedLanguage(detectedLanguage: String): void&lt;br&gt;+ getDetectedLanguage(): String " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-56">
+          <mxGeometry y="68" width="280" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-69" value="DictionaryAdvance" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="-764" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-70" value="- br: BufferedReader&lt;br&gt;- pw: PrintWriter" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-69">
+          <mxGeometry y="26" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-71" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="yg6li7all_toR3SiyI60-69">
+          <mxGeometry y="60" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-72" value="+ DictionaryAdvance()&lt;br&gt;+ insertFromFile(file: File, list: ArrayList&amp;lt;Word&amp;gt;): boolean&lt;br&gt;+ dictionaryExportToFile(file: File, list: ArrayList&amp;lt;Word&amp;gt;): boolean&lt;br&gt;+ insertFromDB(): boolean&lt;br&gt;+ deleteFromDB(word: Word): int&lt;br&gt;+ updateFromDB(word: Word): int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="yg6li7all_toR3SiyI60-69">
+          <mxGeometry y="68" width="200" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="yg6li7all_toR3SiyI60-75" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.46;exitY=-0.004;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.499;entryY=1.005;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="yg6li7all_toR3SiyI60-69" target="yg6li7all_toR3SiyI60-19">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="340" y="-850" as="sourcePoint" />
+            <mxPoint x="200" y="-870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4__qxkCOtMCbFDVbBddg-9" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=1.013;exitY=0.609;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.012;entryY=0.92;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="yg6li7all_toR3SiyI60-72" target="yg6li7all_toR3SiyI60-43">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="620" y="-830" as="sourcePoint" />
+            <mxPoint x="460" y="-830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4__qxkCOtMCbFDVbBddg-12" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;entryX=1.009;entryY=0.245;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.432;exitY=0.995;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="yg6li7all_toR3SiyI60-27" target="yg6li7all_toR3SiyI60-72">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="510" y="-750" as="sourcePoint" />
+            <mxPoint x="670" y="-750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4__qxkCOtMCbFDVbBddg-15" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=-0.001;exitY=0.222;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="yg6li7all_toR3SiyI60-59" target="yg6li7all_toR3SiyI60-55">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1540" y="-1070" as="sourcePoint" />
+            <mxPoint x="1400" y="-1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4__qxkCOtMCbFDVbBddg-16" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.003;exitY=0.339;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="yg6li7all_toR3SiyI60-39" target="yg6li7all_toR3SiyI60-35">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="360" y="-1230" as="sourcePoint" />
+            <mxPoint x="520" y="-1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4__qxkCOtMCbFDVbBddg-18" value="" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=1.012;entryY=0.357;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.023;exitY=0.698;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="yg6li7all_toR3SiyI60-31" target="yg6li7all_toR3SiyI60-39">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="780" y="-1230" as="sourcePoint" />
+            <mxPoint x="940" y="-1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mXEIgYk3K_IvBmabXJU1-2" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;DAOInterface&amp;lt;T&amp;gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ insert(T t): int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ update(T t): int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ delete(T t): int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+&amp;nbsp;selectAll(): ArrayList&amp;lt;T&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+&amp;nbsp;selectById(T t): T&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+&amp;nbsp;selectByConditions(condition: String):&amp;nbsp;ArrayList&amp;lt;T&amp;gt;&lt;/p&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1490" y="-1200" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="mXEIgYk3K_IvBmabXJU1-3" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;JDBCUtil&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+&amp;nbsp;getConnection(): Connection&lt;/p&gt;+ closeConnection(c: Connection): void&lt;br&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1860" y="-847" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mXEIgYk3K_IvBmabXJU1-4" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;WordDAO&amp;lt;Word&amp;gt;&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+&amp;nbsp;getInstance() :&amp;nbsp;WordDAO&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+ insert(Word t): int&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+ update(Word t): int&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+ delete(Word t): int&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+&amp;nbsp;selectAll(): ArrayList&amp;lt;Word&amp;gt;&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+&amp;nbsp;selectById(Word t): Word&lt;/p&gt;&lt;p style=&quot;border-color: var(--border-color); margin: 0px 0px 0px 4px;&quot;&gt;+&amp;nbsp;selectByConditions(condition:String):&amp;nbsp;ArrayList&amp;lt;Word&amp;gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="-887" width="310" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="mXEIgYk3K_IvBmabXJU1-6" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.567;entryY=1.041;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="mXEIgYk3K_IvBmabXJU1-4" target="mXEIgYk3K_IvBmabXJU1-2">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1580" y="-840" as="sourcePoint" />
+            <mxPoint x="1740" y="-840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mXEIgYk3K_IvBmabXJU1-7" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;entryX=1;entryY=0.556;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.004;exitY=0.629;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="mXEIgYk3K_IvBmabXJU1-3" target="mXEIgYk3K_IvBmabXJU1-4">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1580" y="-840" as="sourcePoint" />
+            <mxPoint x="1740" y="-840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
