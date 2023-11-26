@@ -50,7 +50,8 @@ public class Hangman extends Dictionary implements Initializable {
         String randomWord = null;
         try (Connection connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
              Statement statement = connection.createStatement()) {
-            String query = "SELECT word,SUBSTRING_INDEX(SUBSTRING_INDEX(detail, '>- ', -1), '<', 1) as meann FROM tbl_edict where idx>=65 ORDER BY RAND() LIMIT 1";
+
+            String query = "SELECT word,SUBSTRING_INDEX(SUBSTRING_INDEX(detail, '>- ', -1), '<', 1) as meann FROM tbl_edict where idx>=65 and word not like '% %' and word not like '%-%' ORDER BY RAND() LIMIT 1";
             //String query1 =" SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(detail, '>- ', -1), '<', 1)  FROM tbl_edict;"
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
