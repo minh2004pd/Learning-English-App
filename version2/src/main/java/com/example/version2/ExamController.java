@@ -68,8 +68,8 @@ public class ExamController implements Initializable {
     protected Standings standings;
     protected ObservableList<String> standingsList = FXCollections.observableArrayList();
     protected static Exam exam;
-    private int minutes = 0;
-    private int seconds = 20;
+    private int minutes = 2;
+    private int seconds = 0;
     private Timeline timeline;
 
     RadioButton selectedRadioButton = null;
@@ -112,7 +112,7 @@ public class ExamController implements Initializable {
             standingsPane.setVisible(false);
             playerPane.setVisible(false);
         }
-        time.setText("00:20");
+        time.setText("02:00");
         timeline.play();
     }
 
