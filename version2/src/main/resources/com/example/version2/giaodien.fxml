@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="welcome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600" prefWidth="857" style="-fx-background-color: #1269a3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.version2.giaodiencontroll">
+<AnchorPane fx:id="welcome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600" prefWidth="857" style="-fx-background-color: #1269a3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.version2.giaodiencontroll">
    <children>
       <Button fx:id="inforbutton" layoutX="299.0" layoutY="382.0" mnemonicParsing="false" onAction="#onclickinfo" prefHeight="65.0" prefWidth="268.0" style="-fx-background-color: #5fe3df;" text="            About this app" textFill="#2354c6">
          <font>
@@ -17,21 +17,21 @@
          <font>
             <Font name="Menlo Bold" size="24.0" />
          </font></Button>
-      <Button fx:id="searchbutton" layoutX="299.0" layoutY="152.0" mnemonicParsing="false" onAction="#onclick" prefHeight="58.0" prefWidth="266.0" style="-fx-background-color: #5fe3df;" text="  Search" textFill="#2354c6">
+      <Button fx:id="searchbutton" layoutX="299.0" layoutY="152.0" mnemonicParsing="false" onAction="#onclick" prefHeight="58.0" prefWidth="266.0" style="-fx-background-color: #5fe3df;" text="  Dicionary" textFill="#2354c6">
          <font>
             <Font name="Menlo Bold" size="24.0" />
          </font></Button>
-      <Label layoutX="89.0" layoutY="19.0" prefHeight="99.0" prefWidth="652.0" text="            WELCOME TO MY APP" textAlignment="CENTER" textFill="#d7dad1" textOverrun="CLIP" wrapText="true">
+      <Label layoutX="145.0" layoutY="17.0" prefHeight="99.0" prefWidth="652.0" text="            WELCOME TO MY APP" textAlignment="CENTER" textFill="#d7dad1" textOverrun="CLIP" wrapText="true">
          <font>
             <Font name="Chalkboard Bold" size="36.0" />
          </font>
       </Label>
-      <ImageView fitHeight="58.0" fitWidth="57.0" layoutX="346.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="58.0" fitWidth="57.0" layoutX="327.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icon/normal/book.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="64.0" fitWidth="61.0" layoutX="344.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="64.0" fitWidth="61.0" layoutX="325.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icon/normal/game-controller.png" />
          </image>
@@ -41,7 +41,7 @@
             <Image url="@icon/normal/welcome-back.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="53.0" fitWidth="59.0" layoutX="329.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="53.0" fitWidth="59.0" layoutX="329.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icon/normal/question-mark.png" />
          </image>

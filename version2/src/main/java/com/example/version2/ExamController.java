@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -21,7 +22,9 @@ import model.Standings;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class ExamController implements Initializable {
     protected int i = 0;
@@ -40,13 +43,13 @@ public class ExamController implements Initializable {
     @FXML
     protected TextArea question;
     @FXML
-    protected RadioButton answerA;
+    protected Button answerA;
     @FXML
-    protected RadioButton answerB;
+    protected Button answerB;
     @FXML
-    protected RadioButton answerC;
+    protected Button answerC;
     @FXML
-    protected RadioButton answerD;
+    protected Button answerD;
     @FXML
     protected Button next;
     @FXML
@@ -68,11 +71,14 @@ public class ExamController implements Initializable {
     protected Standings standings;
     protected ObservableList<String> standingsList = FXCollections.observableArrayList();
     protected static Exam exam;
+
     private int minutes = 2;
     private int seconds = 0;
-    private Timeline timeline;
 
-    RadioButton selectedRadioButton = null;
+    private Timeline timeline;
+    private boolean answerSelected = false;
+
+    private String selectedAnswer;
 
 
     public void setUser_name() {
@@ -125,11 +131,20 @@ public class ExamController implements Initializable {
     }
 
     public void clearAllChoice() {
-        answerA.setSelected(false);
-        answerB.setSelected(false);
-        answerC.setSelected(false);
-        answerD.setSelected(false);
-        selectedRadioButton = null;
+        answerSelected = false;
+        selectedAnswer = null;
+        resetAllStyleChoice();
+    }
+
+    public void resetAllStyleChoice() {
+        answerA.setStyle("");
+
+        answerB.setStyle("");
+
+        answerC.setStyle("");
+
+        answerD.setStyle("");
+
     }
 
     public void setStandingsListView() {
@@ -156,34 +171,37 @@ public class ExamController implements Initializable {
     }
 
     @FXML
-    public void handleChoice() {
-        if (answerA.isSelected()) {
-            selectedRadioButton = answerA;
-        } else if (answerB.isSelected()) {
-            selectedRadioButton = answerB;
-        } else if (answerC.isSelected()) {
-            selectedRadioButton = answerC;
-        } else if (answerD.isSelected()) {
-            selectedRadioButton = answerD;
-        } else {
-            selectedRadioButton = null;
-        }
+    public void handleChoice(MouseEvent event) {
+        if (answerSelected) return;
 
-        if (selectedRadioButton != null) {
-            String selectedAnswer = selectedRadioButton.getText();
-            System.out.println("Selected answer: " + selectedAnswer);
+        answerSelected = true;
+        Button clickedButton = (Button) event.getSource();
+        selectedAnswer = clickedButton.getText();
+        System.out.println("Selected answer: " + selectedAnswer);
+
+        Questions currentQ = exam.getQuestionsList().get(i);
+        String correctAnswer = currentQ.getOptions()[currentQ.getAnswerIndex()];
+        if (answerA.getText().equals(correctAnswer)) {
+            answerA.setStyle("-fx-text-fill: green;");
+        } else if (answerB.getText().equals(correctAnswer)) {
+            answerB.setStyle("-fx-text-fill: green;");
+        } else if (answerC.getText().equals(correctAnswer)) {
+            answerC.setStyle("-fx-text-fill: green;");
+        } else if (answerD.getText().equals(correctAnswer)) {
+            answerD.setStyle("-fx-text-fill: green;");
+        }
+        if (selectedAnswer.equals(correctAnswer)) {
+            exam.increaseScore(currentQ.getMark());
+            score.setText(exam.getScore() + "");
+            System.out.println("Correct!");
+        } else {
+            clickedButton.setStyle("-fx-text-fill: red;");
         }
     }
 
     @FXML
     public void hanldeSubmit() {
-        if (selectedRadioButton != null) {
-            Questions currentQ = exam.getQuestionsList().get(i);
-            if (selectedRadioButton.getText().equals(currentQ.getOptions()[currentQ.getAnswerIndex()])) {
-                exam.increaseScore(currentQ.getMark());
-                score.setText(exam.getScore() + "");
-                System.out.println("Correct!");
-            }
+        if (selectedAnswer != null) {
             clearAllChoice();
             if (i + 1 < exam.getSize()) {
                 i++;
@@ -214,44 +232,8 @@ public class ExamController implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         standings = new Standings();
         System.out.println(standings.getStandingsList().size());
-        // Create a ChangeListener for each RadioButton
-        answerA.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                // Answer A is selected
-                answerB.setSelected(false);
-                answerC.setSelected(false);
-                answerD.setSelected(false);
-            }
-        });
 
-        answerB.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                // Answer B is selected
-                answerA.setSelected(false);
-                answerC.setSelected(false);
-                answerD.setSelected(false);
-            }
-        });
-
-        answerC.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                // Answer C is selected
-                answerA.setSelected(false);
-                answerB.setSelected(false);
-                answerD.setSelected(false);
-            }
-        });
-
-        answerD.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                // Answer D is selected
-                answerA.setSelected(false);
-                answerB.setSelected(false);
-                answerC.setSelected(false);
-            }
-        });
-
-        time.setText("00:20");
+        time.setText("05:00");
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             decrement();
             // Format the time as mm:ss

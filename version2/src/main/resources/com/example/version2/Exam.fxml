@@ -56,16 +56,16 @@
             </AnchorPane>
             <AnchorPane styleClass="exam-center" layoutY="125.0" prefHeight="384.0" prefWidth="800.0">
                <children>
-                  <TextArea fx:id="question" editable="false" styleClass="text-area" wrapText="true" layoutX="195.0" layoutY="55.0" prefHeight="110.0" prefWidth="414.0" />
-                  <RadioButton fx:id="answerA" styleClass="answer" layoutX="140.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="A" textFill="WHITE" />
-                  <RadioButton fx:id="answerC" styleClass="answer" layoutX="140.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="C" textFill="WHITE" />
-                  <RadioButton fx:id="answerB" styleClass="answer" layoutX="426.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="B" textFill="WHITE" />
-                  <RadioButton fx:id="answerD" styleClass="answer" layoutX="426.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="D" textFill="WHITE" />
+                     <TextArea fx:id="question" editable="false" styleClass="text-area" wrapText="true" layoutX="195.0" layoutY="55.0" prefHeight="110.0" prefWidth="414.0" />
+                     <Button fx:id="answerA" styleClass="answer" layoutX="140.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="A" textFill="WHITE" />
+                     <Button fx:id="answerC" styleClass="answer" layoutX="140.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="C" textFill="WHITE" />
+                     <Button fx:id="answerB" styleClass="answer" layoutX="426.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="B" textFill="WHITE" />
+                     <Button fx:id="answerD" styleClass="answer" layoutX="426.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#handleChoice" text="D" textFill="WHITE" />
                </children>
             </AnchorPane>
             <AnchorPane styleClass="exam-footer" layoutY="509.0" prefHeight="94.0" prefWidth="800.0">
                <children>
-                  <Button fx:id="submit" styleClass="submit-question" layoutX="363.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#hanldeSubmit" textFill="WHITE" />
+                  <Button fx:id="submit" styleClass="submit-question" layoutX="363.0" layoutY="5.0" mnemonicParsing="false" onAction="#hanldeSubmit" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children>

@@ -4,7 +4,7 @@ public class Questions {
     private String question;
     private String[] options;
     private int answerIndex;
-    private int mark = 5;
+    private int mark = 10;
 
     public Questions(String question, String[] options, int answerIndex) {
         this.question = question;

@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class DictionaryAdvance extends Dictionary {
     private BufferedReader br;
@@ -67,6 +68,7 @@ public class DictionaryAdvance extends Dictionary {
 
     public boolean insertFromDB() throws Exception {
         wordList = WordDAO.getInstance().selectAll();
+        Collections.sort(wordList, (word1, word2) -> word1.getWord_target().compareTo(word2.getWord_target()));
         if (wordList.size() == 0) {
             return false;
         }
@@ -75,11 +77,13 @@ public class DictionaryAdvance extends Dictionary {
 
     public int deleteFromDB(Word word) {
         int res = WordDAO.getInstance().delete(word);
+        Collections.sort(wordList, (word1, word2) -> word1.getWord_target().compareTo(word2.getWord_target()));
         return  res;
     }
 
     public int updateFromDB(Word word) {
         int res = WordDAO.getInstance().update(word);
+        Collections.sort(wordList, (word1, word2) -> word1.getWord_target().compareTo(word2.getWord_target()));
         return res;
     }
 }

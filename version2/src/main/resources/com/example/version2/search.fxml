@@ -16,8 +16,8 @@
               <children>
                   <AnchorPane prefHeight="35.0" prefWidth="50.0">
                       <children>
-                          <Button fx:id="transLanguageEV" ellipsisString="" mnemonicParsing="false" onAction="#handleClickTransButton" styleClass="button-eng-viet" />
-                          <Button fx:id="transLanguageVE" ellipsisString="" mnemonicParsing="false" onAction="#handleClickTransButton" styleClass="button-viet-eng" visible="false" />
+                          <Button fx:id="transLanguageEV" ellipsisString="" mnemonicParsing="false" styleClass="button-eng-viet" />
+                          <Button fx:id="transLanguageVE" ellipsisString="" mnemonicParsing="false" styleClass="button-viet-eng" visible="false" />
                       </children>
                   </AnchorPane>
                   <TextField fx:id="searchField" onKeyReleased="#searchFieldAction" prefHeight="35.0" prefWidth="441.0" promptText="Tra từ" style="-fx-border-radius: 5;" styleClass="search" />

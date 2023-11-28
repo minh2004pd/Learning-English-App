@@ -86,9 +86,7 @@ public class WordDAO implements DAOInterface<Word> {
         ArrayList<Word> res = new ArrayList<Word>();
         try {
             Connection c = JDBCUtil.getConnection();
-            String sql = "SELECT * FROM tbl_edict " +
-                    "WHERE BINARY word RLIKE '^[a-z]+$' " +
-                    "ORDER BY word ";
+            String sql = "SELECT * FROM tbl_edict ";
             PreparedStatement pst = c.prepareStatement(sql);
 
             ResultSet resultSet = pst.executeQuery();

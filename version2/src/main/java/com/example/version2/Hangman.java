@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.Dictionary;
+
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -41,7 +43,7 @@ public class Hangman extends Dictionary implements Initializable {
     @FXML
     private Label soluot;
     private String mean;
-    private static final String JDBC_URL = "jdbc:mySQL://localhost:3306/test";
+    private static final String JDBC_URL = "jdbc:mySQL://localhost:3306/classicmodels";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
     private String getRandomWordFromDatabase() {
@@ -112,29 +114,53 @@ public class Hangman extends Dictionary implements Initializable {
             remainingAttempts--;
         }
         if(remainingAttempts == 5){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman2.png")) ;
+            try {
+                image.setImage( new Image(String.valueOf(getClass().getResource("/com/example/version2/icon/normal/hangman2.png").toURI())));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
             soluot.setText("RemainingAttempts: " + remainingAttempts);
         }
         if(remainingAttempts == 4){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman3.png")) ;
+            try {
+                image.setImage( new Image(String.valueOf(getClass().getResource("/com/example/version2/icon/normal/hangman3.png").toURI())));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
             soluot.setText("RemainingAttempts: " + remainingAttempts);
         }
         if(remainingAttempts == 3){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman4.png")) ;
+            try {
+                image.setImage( new Image(String.valueOf(getClass().getResource("/com/example/version2/icon/normal/hangman4.png").toURI())));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
             soluot.setText("RemainingAttempts: " + remainingAttempts);
             goiy.setText("Gợi ý nè! Nghĩa của từ khoá: " + mean);
 
         }
         if(remainingAttempts == 2){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman5.png")) ;
+            try {
+                image.setImage( new Image(String.valueOf(getClass().getResource("/com/example/version2/icon/normal/hangman5.png").toURI())));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
             soluot.setText("RemainingAttempts: " + remainingAttempts);
         }
         if(remainingAttempts == 1){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman6.png")) ;
+            try {
+                image.setImage( new Image(String.valueOf(getClass().getResource("/com/example/version2/icon/normal/hangman6.png").toURI())));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
             soluot.setText("RemainingAttempts: " + remainingAttempts);
         }
         if(remainingAttempts == 0){
-            image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman7.png")) ;
+            try {
+                image.setImage( new Image(String.valueOf(getClass().getResource("/com/example/version2/icon/normal/hangman7.png").toURI())));
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
             soluot.setText("RemainingAttempts: " + remainingAttempts);
         }
 
@@ -181,7 +207,11 @@ public class Hangman extends Dictionary implements Initializable {
         remainingAttempts = 6;
         tuhientai.setText(currentWordState.toString());
         sokitu.setText("The secret word has "+currentWordState.length() +" characters.");
-        image.setImage( new Image("file:/Users/nguyenhoangdiep/Desktop/Learning-English-App/version2/src/main/resources/com/example/version2/icon/normal/hangman1.png")) ;
+        try {
+            image.setImage( new Image(String.valueOf(getClass().getResource("/com/example/version2/icon/normal/hangman1.png").toURI())));
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
         soluot.setText("RemainingAttempts: " + remainingAttempts);
         goiy.setText(" ");
     }
