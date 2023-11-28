@@ -215,8 +215,8 @@ public class ExamController implements Initializable {
     }
 
     public void setTimer() {
-        minutes = 0;
-        seconds = 20;
+        minutes = 2;
+        seconds = 0;
     }
 
     @FXML

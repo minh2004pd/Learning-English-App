@@ -1,9 +1,14 @@
 a	50
+a	40
+s	40
+Minh	30
+a	30
 sdf	20
 sdf	20
 s	20
 sdf	15
 a	15
+a	10
 a	10
 sf	5
 df	5
@@ -31,3 +36,5 @@ sdf	0
 sd	0
 s	0
 a	0
+a	0
+l	0
