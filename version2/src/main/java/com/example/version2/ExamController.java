@@ -71,8 +71,10 @@ public class ExamController implements Initializable {
     protected Standings standings;
     protected ObservableList<String> standingsList = FXCollections.observableArrayList();
     protected static Exam exam;
-    private int minutes = 5;
-    private int seconds = 00;
+
+    private int minutes = 2;
+    private int seconds = 0;
+
     private Timeline timeline;
     private boolean answerSelected = false;
 
@@ -116,7 +118,7 @@ public class ExamController implements Initializable {
             standingsPane.setVisible(false);
             playerPane.setVisible(false);
         }
-        time.setText("00:20");
+        time.setText("02:00");
         timeline.play();
     }
 

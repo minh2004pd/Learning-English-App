@@ -16,6 +16,8 @@ public class DictionaryApplication extends Application {
         primaryStage.setTitle("Dictionary");
         primaryStage.setScene(scene);
         primaryStage.show();
+        primaryStage.setResizable(false);
+
     }
 
     public static void main(String[] args) {

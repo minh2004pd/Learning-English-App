@@ -58,3 +58,97 @@
 #She loves to read __________ and often finishes a book in a day.
 *novels,newspapers,magazines,comics
 =0
+#When I bought the shoes, they ___________ me well but later they were too tight at home.
+*matched,fitted,suited,went with
+=1
+#They received a ten-year sentence for ________armed robbery .
+*making,doing,committing,practicing
+=2
+#This magazine is very good. If you like reading, you should_________to it.
+*buy,subscribe,contribute,enroll
+=1
+#In life _________can make a mistake ; We’re all human .
+*anyone,someone,some people,not anybody
+=0
+#Rows and silences are________ and parcel of any marriage.
+*package,stamps,packet,part
+=3
+#He’ll be very upset if you _________his offer of help.
+*turn away,turn from,turn down,turn against
+=2
+#Do you have any objections___________this new road scheme?
+*at,with,to,for
+=2
+#The police set a_________.to catch the thieves.
+*plan,device,snare,trap
+=3
+#Although he was _________ , he agreed to play tennis with me
+*exhaustion,exhausted,exhausting,exhaustive
+=1
+#Language could __________ more quickly if there were more language exchange programs.
+*be learning,have learned,have learning,be learned
+=3
+#She won the award for________.her whole life to looking after the poor.
+*paying,devoting,causing,attracting
+=1
+#Although the exam was difficult, ___________ the students passed it.
+*most of,none of,a few,a lot
+=0
+#The mirror was ________ broken.
+*accident,accidental,accidentally,by accident
+=2
+#I may look half asleep, but I can assure you I am _________ awake.
+*broad,full,well,wide
+=3
+#Luggage may be placed here _____________ the owner’s risk.
+*at,by,under,with
+=0
+#After several months of hard work, the police are finally ________________ somewhere with their investigation
+*getting,going,making,doing
+=0
+#There’s no danger in using this machine as long as you ______________ to the safety regulations.
+*comply,adhere,observe,abide
+=1
+#___________drivers endanger their lives and those of other road users.
+*Drunk,Drunken,Drinking,Drunkard
+=1
+#The boy’s mother was __________ in by his lies
+*drawn,taken,pulled,caught
+=1
+#____________on a hot fire is a delicacy in many parts of the world.
+*lamb roasted,roasted,lambs roast,lambs
+=0
+#The two trains came ___________ ten metres of collision
+*just,within,near,almost
+=1
+#Mary wanted to give Nigel a present that was a little bit out of the _________
+*normal,ordinary,average,everyday
+=1
+#You need to cut ___________ the onions into small pieces before cooking them
+*up,down,through,into
+=0
+#The main argument in the report is ___________ correct
+*primarily,up to a point,fundamentally,supposedly
+=2
+#My grandma is very ___________, she’s always thinking of the past
+*memorable,remembering,nostalgia,nostalgic
+=3
+#I bought this electric drill from a ___________ -it-yourself shop
+*do,repair,make,fix
+=0
+#___________! You deserved to win
+*unfair luck,nasty lucky,hard luck,bad fortune
+=2
+#This clock ___________ on two small batteries
+*goes,works,runs,moves
+=2
+#Soldiers often wear ___________so you can’t see them easily
+*a disguise,camouflage,heavy boots,a costume
+=1
+#Sorry, were you ___________to me? I wasn’t listening
+*telling,chatting,talking,discussing
+=2
+
+
+
+
