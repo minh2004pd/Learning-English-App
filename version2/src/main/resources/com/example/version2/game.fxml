@@ -14,7 +14,7 @@
             <Font name="Hannotate SC Bold" size="48.0" />
          </font>
       </Label>
-      <ImageView fitHeight="472.0" fitWidth="342.0" layoutX="39.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: o;">
+      <ImageView fitHeight="472.0" fitWidth="342.0" layoutX="39.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icon/normal/hangmen.png" />
          </image>

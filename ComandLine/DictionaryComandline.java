@@ -80,7 +80,7 @@ public class DictionaryComandline {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhap tu can sua: ");
         String input = scanner.nextLine().toLowerCase();
-        if (dictionaryManagement.dictionaryLookup(input).isEmpty()) {
+        if (dictionaryManagement.dictionaryLookup(input) == null) {
             System.out.println("don't find word!");
             // scanner.close();
             return;
@@ -130,14 +130,12 @@ public class DictionaryComandline {
         System.out.print("Nhap tu can tra: ");
         Scanner scanner = new Scanner(System.in);
         String word = scanner.nextLine();
-        ArrayList<Word> res = dictionaryManagement.dictionaryLookup(word);
-        if (res.isEmpty()) {
+        Word res = dictionaryManagement.dictionaryLookup(word);
+        if (res == null) {
             System.out.println("Khong tim thay tu can tra!");
         } else {
             System.out.println("Ket qua: ");
-            for (Word w : res) {
-                System.out.println(w.getWord_target() + "\t" + w.getWord_explain());
-            }
+            System.out.println(res.getWord_target() + "\t" + res.getWord_explain());
         }
         // scanner.close();
     }

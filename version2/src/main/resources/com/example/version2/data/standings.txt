@@ -1,8 +1,10 @@
 a	50
+ft	50
 a	40
 s	40
 Minh	30
 a	30
+as	30
 sdf	20
 sdf	20
 s	20
